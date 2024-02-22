@@ -18,16 +18,16 @@ const Page2= lazy(() =>
 
 const router = createBrowserRouter([
   {
-    path: "/react-vite-supreme/",
+    path: "/balaod/",
     element: <App />,
     
     children: [
       {
-        path: "/react-vite-supreme/", 
-        element: <Navigate to="/react-vite-supreme/page1" />, 
+        path: "/balaod/", 
+        element: <Navigate to="/balaod/page1" />, 
       },
       {
-        path: "/react-vite-supreme/page1",
+        path: "/balaod/page1",
         element: <>
         <Suspense fallback={<Loader />}>
           <Page1 />
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/react-vite-supreme/page2",
+        path: "/balaod/page2",
         element: <>
         <Suspense fallback={<Loader />}>
           <Page2 />
