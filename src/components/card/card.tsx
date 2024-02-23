@@ -1,9 +1,9 @@
 import { Button } from "../ui/button"
 
 
-function ActivitiesCard() {
+function ActivitiesCard({className}:any) {
   return (
-    <div className=" border  border-card flex flex-col relative w-[400px] bg-primary h-[400px] p-5">
+    <div className={"  border  border-card flex flex-col relative  bg-primary h-[400px] p-5 "+ className}>
         
         <div className="  w-full h-full bg-white">
 
