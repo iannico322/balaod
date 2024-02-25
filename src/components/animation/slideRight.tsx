@@ -6,7 +6,7 @@ interface Props{
     width?:"fit-content" | "100%";
 }
 
-const SlideRight = ({children,width = "fit-content"}:Props) => {
+const SlideRight = ({children}:Props) => {
     const ref = useRef(null)
     const isInView = useInView(ref)
     const mainControls = useAnimation();

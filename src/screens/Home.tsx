@@ -1,6 +1,5 @@
 
 import Reveal from "@/components/animation/reveal"
-import SlideRight from "@/components/animation/slideRight"
 import TextSlide from "@/components/animation/textSlide"
 import ActivitiesCard from "@/components/card/card"
 import CudlitCard from "@/components/card/card2"

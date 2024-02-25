@@ -19,8 +19,6 @@ function App() {
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
   const [navbarTop, setNavbarTop] = useState<string>('0');
 
-  const [searchBar, setsearchBar] = useState<boolean>(false);
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
