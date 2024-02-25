@@ -6,21 +6,21 @@ interface Props{
     width?:"fit-content" | "100%";
 }
 
-const SlideUp = ({children,width = "fit-content"}:Props) => {
-    const ref = useRef(null)
-    const isInView = useInView(ref)
-    const mainControls = useAnimation();
-    const slideControls = useAnimation();
-
-
-    useEffect(()=>{
-        if (isInView) {
-            mainControls.start("visible")
-            slideControls.start("visible")
-
-        }
-
-    },[isInView])
+const TextSlide = ({children,width = "fit-content"}:Props) => {
+        const ref = useRef(null)
+        const isInView = useInView(ref)
+        const mainControls = useAnimation();
+        const slideControls = useAnimation();
+    
+    
+        useEffect(()=>{
+            if (isInView) {
+                mainControls.start("visible")
+                slideControls.start("visible")
+    
+            }
+    
+        },[isInView])
 
   return (
     <div ref={ref} style={{position:"relative",width, overflow:"hidden"}}>
@@ -35,8 +35,8 @@ const SlideUp = ({children,width = "fit-content"}:Props) => {
         >{children}</motion.div>
         <motion.div 
         variants={{
-            hidden:{top:0},
-            visible:{top:"100%"}
+            hidden:{left:0},
+            visible:{left:"100%"}
         }}
         initial="hidden"
         animate={slideControls}
@@ -44,11 +44,12 @@ const SlideUp = ({children,width = "fit-content"}:Props) => {
         style={{
             position:"absolute",
             top:4,
-            bottom:4,left:0,right:0,background:"#e11d48",zIndex:20,
+            bottom:4,left:0,right:0,background:"#662138",zIndex:20,
         }}
         />
+        
     </div>
   )
 }
 
-export default SlideUp
+export default TextSlide

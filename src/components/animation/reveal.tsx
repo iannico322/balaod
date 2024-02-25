@@ -23,7 +23,7 @@ const Reveal = ({children,width = "fit-content"}:Props) => {
     },[isInView])
 
   return (
-    <div ref={ref} style={{position:"relative",width, overflow:"hidden"}}>
+    <div ref={ref} className=" flex items-center justify-center relative" style={{width, overflow:"hidden"}}>
         <motion.div 
         variants={{
             hidden:{opacity:0,y:75},
@@ -33,20 +33,7 @@ const Reveal = ({children,width = "fit-content"}:Props) => {
         animate={mainControls}
         transition={{duration:0.5,delay:0.25}}
         >{children}</motion.div>
-        <motion.div 
-        variants={{
-            hidden:{left:0},
-            visible:{left:"100%"}
-        }}
-        initial="hidden"
-        animate={slideControls}
-        transition={{duration:0.5,ease:"easeIn"}}
-        style={{
-            position:"absolute",
-            top:4,
-            bottom:4,left:0,right:0,background:"#e11d48",zIndex:20,
-        }}
-        />
+        
     </div>
   )
 }
