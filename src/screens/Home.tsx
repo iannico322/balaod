@@ -8,9 +8,6 @@ import CoverSlide from "@/components/animation/coverSlide"
 // import { Button } from "@/components/ui/button"
 import Reveal2 from "@/components/animation/reveal2"
 import Reveal3 from "@/components/animation/reveal3"
-import Logo from './../assets/images/logo/BalaodWhiteOutFull@3x.png'
-import { FacebookIcon, Mail, Twitter } from "lucide-react"
-
 
 import partner1 from './../assets/images/partners/alg-web-logo-copy.png'
 import partner2 from './../assets/images/partners/logo_0.png'
@@ -21,6 +18,7 @@ import partner5 from './../assets/images/partners/DSWD-Logo.png'
 import partner6 from './../assets/images/partners/sec.png'
 import partner7 from './../assets/images/partners/cdo_seal.png'
 import { Button } from "@/components/ui/button"
+import Footer from "@/components/footer/Footer"
 
 
 
@@ -32,6 +30,13 @@ import { Button } from "@/components/ui/button"
 
 
 const Page1 = () => {
+  const handleClick = (event:any, targetId:any) => {
+    event.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' }); 
+    }
+  };
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
       <CoverSlide>
@@ -56,7 +61,11 @@ const Page1 = () => {
 
 
             <Reveal>
-              <button className=" hover:opacity-60 transition-all duration-200 font-black shadow-2xl text-primary-foreground uppercase  sm:text-sm bg-transparent border border-primary-foreground text-xl p-4">
+              <button  
+              onClick={(e) => {handleClick(e, 'more')
+                
+              }}
+              className=" hover:opacity-60 transition-all duration-200 font-black shadow-2xl text-primary-foreground uppercase  sm:text-sm bg-transparent border border-primary-foreground text-xl p-4">
                 Read More
               </button>
             </Reveal>
@@ -75,7 +84,7 @@ const Page1 = () => {
       </CoverSlide>
 
     
-        <div className=" rounded-sm px-20 sm:px-5 flex-col  w-full    min-h-0 pt-20 items-center justify-center  ">
+        <div id="more" className=" rounded-sm px-20 sm:px-5 flex-col  w-full  min-h-0 pt-20 items-center justify-center  ">
           <div className=" flex  justify-center gap-10  ">
           <Reveal2>
           <div className=" flex flex-col">
@@ -101,6 +110,8 @@ Balaod
           </div>
         </div>
       {/* Activities part */}
+
+      <hr  className=" w-full border border-primary h-2 border-none border-b-2"/>
       <div className="  mt-36 relative  flex  gap-10 flex-col  items-center min-h-0 w-full ">
         <TextSlide>
           
@@ -109,14 +120,14 @@ Balaod
         
           
         </TextSlide>
-
-        <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4  gap-4   w-full sm:px-5 px-20 min-h-0  justify-center animate__animated animate__slideInUp ">
+       <Reveal2>
+        <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4  gap-4   w-full sm:px-5 px-20 min-h-0  justify-center  ">
           <ActivitiesCard />
           <ActivitiesCard />
           <ActivitiesCard />
           <ActivitiesCard />
         </div>
-      
+      </Reveal2>
 
 
         {/* <TextSlide>
@@ -143,13 +154,18 @@ Balaod
       
 <div className=" w-full flex justify-center">
 
+<Reveal2>
+  <div className=" w-full min-h-0 flex justify-center">
 
+  
 <div  className=" flex flex-wrap justify-center   w-[60%] gap-5 sm:gap-2">
   {[partner1,partner2,partner3,partner4,partner5].map((e:any)=>(
     <img src={e} className=" col-span-1  h-32 sm:h-24 object-contain" alt="" />
   ))}
 
 </div>
+</div>
+</Reveal2>
 </div>
       </div>
 
@@ -161,17 +177,20 @@ Balaod
       
 <div className=" w-full flex justify-center">
 
-
-<div  className=" grid grid-cols-3 items-center justify-center w-[60%]  sm:gap-2">
+<Reveal2>
+  <div className=" w-full min-h-0 flex justify-center">
+<div  className=" grid grid-cols-3 items-center justify-center w-full gap-10  sm:gap-2">
   {[partner7,partner6,partner5].map((e:any)=>(
     <div className=" flex flex-col gap-5">
       <img src={e} className=" col-span-1 sm:col-span-3 justify-self-center h-36 sm:h-24 object-contain" alt="" />
-      <Button className=" font-fmedium bg-background text-primary border border-primary w-[50%] self-center">Learn More</Button>
+      <Button className=" font-fmedium bg-background text-primary border border-primary w-[80%] self-center">Learn More</Button>
     </div>
     
   ))}
 
 </div>
+</div>
+</Reveal2>
 </div>
       </div>
 
@@ -182,45 +201,7 @@ Balaod
 
    
 
-      <footer className=" min-h-0 py-10 pb-5 items-start flex w-full justify-center bg-primary  border border-none border-t-2 border-primary-foreground text-accent">
-        <div className=" px-20 w-[80%] flex items-start justify-between">
-          <div className=" flex items-start gap-10 font-flight">
-            <div className=" flex flex-col items-start gap-2">
-            <img src={Logo} className="  h-24 object-contain" alt="" />
-            <p className=" text-base text-accent">Copyright © 2024 Balaod Mindanaw.</p>
-          </div>
-
-          <div className=" flex flex-col gap-2 text-sm">
-            <p className=" cursor-pointer">Home</p>
-            <p className=" cursor-pointer">About Us</p>
-            <p className=" cursor-pointer">Our Programs</p>
-            <p className=" cursor-pointer">Work With Us</p>
-
-          </div>
-
-          <div className=" flex flex-col gap-2 text-sm">
-            <a href="#Partners-and-Networks" className=" cursor-pointer">Partners and Networks</a>
-            <a href="#Accreditations" className=" cursor-pointer">Accreditations</a>
-
-          </div>
-          </div>
-          
-
-          <div>
-            <h1 className=" font-fbold">CONTACT US</h1>
-            <p className=" font-fregular">(+63) 923-1271-122 <br />
-balaodmindaw@bakaod.org <br />
-Cagayan de Oro City, PH, 9000</p>
-<div className=" flex gap-5 py-5 cursor-pointer ">
-
-  <FacebookIcon/> <Twitter/> <Mail/>
-</div>
-          </div>
-          
-
-        </div>
-
-      </footer>
+     <Footer/>
 
 
     </div>

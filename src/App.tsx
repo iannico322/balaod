@@ -57,7 +57,7 @@ function App() {
           </Link>
           <nav className=" bg-accent h-[60px] text-accent-foreground flex  uppercase items-center justify-center">
             <div className=" flex h-full items-center font-regular justify-center w-full md:hidden">
-              <NavLink to="/balaod/home" text="HOME" />
+              <NavLink to="/balaod" text="HOME" />
 
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
@@ -69,8 +69,10 @@ function App() {
                 <div className="hidden w-[200px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
                     to="/balaod/about"
-                    onClick={(e) => {handleClick(e, 'who-we-are')
-                    navigate("/balaod/about")
+                    onClick={(e) => {
+                      navigate("/balaod/about#who-we-are")
+                      handleClick(e, 'who-we-are')
+                    
                       
                     }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm border-b-[1px] tracking-wider bg-gray-200 hover:bg-background"
@@ -79,8 +81,9 @@ function App() {
                   </Link>
                   <Link
                     to="/balaod/about"
-                    onClick={(e) => {handleClick(e, 'what-we-do')
-                    navigate("/balaod/about")
+                    onClick={(e) => {
+                    navigate("/balaod/about#what-we-do")
+                    handleClick(e, 'what-we-do')
                     }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
                   >
@@ -97,31 +100,55 @@ function App() {
                   <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
                 </button>
                 <div className="hidden w-[300px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
-                  <a
-                    href=""
+                  <Link
+                     to="/balaod/programs"
+                     onClick={(e) => {
+                      navigate("/balaod/programs#Human Rights Promotion")
+                      handleClick(e, 'Human Rights Promotion')
+                    
+                      
+                    }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm border-b-[1px] tracking-wider bg-gray-200 hover:bg-background"
                   >
                     Human Rights Promotion
-                  </a>
-                  <a
-                    href=""
+                  </Link>
+                  <Link
+                    to="/balaod/programs"
+                    onClick={(e) => {
+                      navigate("/balaod/programs#Environmental Justice")
+                      handleClick(e, 'Environmental Justice')
+                    
+                      
+                    }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
                   >
                     Environmental Justice
 
-                  </a>
-                  <a
-                    href=""
+                  </Link>
+                  <Link
+                     to="/balaod/programs"
+                     onClick={(e) => {
+                      navigate("/balaod/programs#Women and Children Protection")
+                      handleClick(e, 'Women and Children Protection')
+                    
+                      
+                    }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
                   >
                     Women and Children Protection
-                  </a>
-                  <a
-                    href=""
+                  </Link>
+                  <Link
+                    to="/balaod/programs"
+                    onClick={(e) => {
+                      navigate("/balaod/programs#Institutional Development")
+                      handleClick(e, 'Institutional Development')
+                    
+                      
+                    }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
                   >
                    Institutional Development
-                  </a>
+                  </Link>
                 </div>
               </div>
 

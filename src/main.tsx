@@ -12,8 +12,13 @@ const Page1= lazy(() =>
   wait(1300).then(() => import("./screens/Home.tsx"))
 );
 
-const Page2= lazy(() =>
-  wait(1300).then(() => import("./screens/page2.tsx"))
+
+const AboutUs = lazy(() =>
+  wait(1300).then(() => import("./screens/AboutUs.tsx"))
+);
+
+const Programs = lazy(() =>
+  wait(1300).then(() => import("./screens/Programs.tsx"))
 );
 
 const router = createBrowserRouter([
@@ -38,7 +43,15 @@ const router = createBrowserRouter([
         path: "/balaod/about",
         element: <>
         <Suspense fallback={<Loader />}>
-          <Page2 />
+          <AboutUs/>
+        </Suspense>
+      </>,
+      },
+      {
+        path: "/balaod/programs",
+        element: <>
+        <Suspense fallback={<Loader />}>
+          <Programs/>
         </Suspense>
       </>,
       },

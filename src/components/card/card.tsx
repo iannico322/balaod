@@ -6,7 +6,7 @@ import Logo from './../../assets/images/logo/BalaodWhiteOutFull@3x.png'
 function ActivitiesCard({className}:any) {
   return (
     <Reveal>
-    <div className={"  rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary h-[450px] overflow-hidden "+ className}>
+    <div className={"  cursor-pointer rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary h-[450px] overflow-hidden "+ className}>
 
       <div className="  z-10 absolute h-full w-full bg-gradient-to-b from-[#fd90019d] from-5% via-[#5d193e00] via-92% to-[#5d193ee5] to-2% ">
       <img

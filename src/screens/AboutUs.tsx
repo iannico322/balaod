@@ -7,52 +7,52 @@ import image3 from './../assets/images/samples/about-us-3.jfif'
 import Logo from './../assets/images/logo/BalaodWhiteOutFull@3x.png'
 import { FacebookIcon, Mail, Twitter } from "lucide-react"
 import CoverSlide from "@/components/animation/coverSlide"
+import Cover from './../assets/images/samples/9d146eac-ca05-4249-9eaf-37fdee7ec489.jfif'
 
-
-const Page2 = () => {
+const AboutUs = () => {
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
-       <CoverSlide>
-        <div id="who-we-are" className=" px-20 sm:px-5 flex flex-col  w-full min-h-[80vh] pb-20 bg-primary-foreground pt-20 items-center justify-center  ">
-          <div className=" flex flex-col justify-center gap-10  ">
+    <CoverSlide>
+    <div id="who-we-are" className=" px-20 sm:px-5 flex flex-col  w-full min-h-[80vh] pb-20 bg-primary-foreground pt-20 items-center justify-center bg-fixed bg-cover bg-center object-contain  " style={{backgroundImage:`url(${Cover})`}}>
+        <div className="  z-10 absolute h-full w-full bg-gradient-to-t from-[#fd900178] from-[2%] via-[#5d193ede] via-[90%] to-[#5d193ede] to-[90%] ">
+        </div>
+          <div className="  z-20 flex flex-col justify-center gap-10  ">
           <Reveal2>
-        
-
-<h1 className=" text-primary font-fbold  md:text-4xl text-9xl font-semibold">
-WHO WE ARE?
-</h1>
-</Reveal2>
-         
-<Reveal3>
+            <h1 className=" text-accent font-fbold  md:text-4xl text-7xl font-semibold">
+            WHO WE ARE?
+            </h1>
+          </Reveal2>
+          <Reveal3>
           <div className=" flex gap-5">
          
 
-            <p className=" font-flight   text-4xl text-primary  sm:text-sm">
+            <p className="  text-3xl w-[70%] text-accent  sm:text-sm">
             Balay Alternative Legal Advocates for Development in Mindanaw (Balaod Mindanaw), or popularly know as “Balaod”, is a legal resource non-government organization who believes in the legal empowerment of marginalized groups and communities as a way of advancing their access to justice.
           </p>
           </div>
           </Reveal3>
           
+      </div>
           </div>
-        </div>
-        </CoverSlide>
+    </CoverSlide>
         <div id="what-we-do" className=" relative flex rounded-sm px-20 pl-36 sm:px-5 flex-col  w-full h-[80vh]  items-start  ">
           <div className=" absolute flex flex-col items-center h-full w-[30px] left-0 ml-20 ">
-            <div className=" h-[50%] w-[20px] bg-primary-foreground">
+            <div className=" h-[61%] w-[20px] bg-primary-foreground">
             </div>
-            <div className=" translate-y-[-20px] bg-primary-foreground rounded-full h-[50px] w-[50px]">
+        <div className=" translate-y-[-20px] bg-primary-foreground rounded-full h-[50px] w-[50px]">
 
-            </div>
+        </div>
           </div>
 
-          <div className=" relative w-full pt-20 min-h-0 max-h-[370px] overflow-hidden  grid grid-cols-3 gap-2">
+          <Reveal2>
+          <div className=" relative w-full pt-20 min-h-0 max-h-[38vh] overflow-hidden  grid grid-cols-3 gap-2">
             {[image1,image2,image3].map((e:any)=>(
               <img src={e} className="  justify-self-center col-span-1 object-cover" alt="" />
             ))}
-            
+         
 
           </div>
-
+        </Reveal2>
           <div className=" flex  justify-center gap-10 pt-10  ">
           <Reveal2>
           <div className=" flex flex-col">
@@ -69,7 +69,7 @@ WHAT WE DO ?
           <div className=" flex gap-5 ">
          
 
-            <p className=" font-flight   text-3xl text-primary  sm:text-sm">
+            <p className=" font-flight   text-3xl text-primary md:text-base  sm:text-sm">
             Paralegal Formation and Capacity-building, Alternative Lawyering, Policy Formulation, and Advocacy Campaigning that is guided by active and non-violent participation as a vital standard.
 
 
@@ -123,4 +123,4 @@ Cagayan de Oro City, PH, 9000</p>
   )
 }
 
-export default Page2
+export default AboutUs
