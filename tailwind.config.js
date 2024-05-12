@@ -30,6 +30,26 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
   },
     extend: {
+      fontFamily: {
+        'fblack': ['Montserrat Black'],
+        'fblack-italic': ['Montserrat BlackItalic'],
+        'fbold': ['Montserrat Bold'],
+        'fbold-italic': ['Montserrat BoldItalic'],
+        'fextra-bold': ['Montserrat ExtraBold'],
+        'fextra-bold-italic': ['Montserrat ExtraBoldItalic'],
+        'fextra-light': ['Montserrat ExtraLight'],
+        'fextra-light-italic': ['Montserrat ExtraLightItalic'],
+        'fitalic': ['Montserrat Italic'],
+        'flight': ['Montserrat Light'],
+        'flight-italic': ['Montserrat LightItalic'],
+        'fmedium': ['Montserrat Medium'],
+        'fmedium-italic': ['Montserrat MediumItalic'],
+        'fregular': ['Montserrat Regular'],
+        'fsemi-bold': ['Montserrat SemiBold'],
+        'fsemi-bold-italic': ['Montserrat SemiBoldItalic'],
+        'fthin': ['Montserrat Thin'],
+        'fthin-italic': ['Montserrat ThinItalic'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

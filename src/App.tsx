@@ -1,70 +1,139 @@
 import { ThemeProvider } from "@/components/theme-provider";
 
-
-
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 // import { ModeToggle } from "./components/mode-toggle";
 // import Reveal from "./components/animation/reveal";
-import { MenuIcon, SearchIcon } from "lucide-react";
+import { ChevronDown, MenuIcon, SearchIcon } from "lucide-react";
 import NavLink from "./components/link/link";
 import { useEffect, useState } from "react";
-
-
-
-
+import HeadLogo from "./assets/images/logo/BalaodWhiteOutFull@3x.png";
 
 function App() {
-
+  const navigate = useNavigate()
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
-  const [navbarTop, setNavbarTop] = useState<string>('0');
+  const [navbarTop, setNavbarTop] = useState<string>("0");
+
+
+  const handleClick = (event:any, targetId:any) => {
+    event.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' }); 
+    }
+  };
+
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       if (prevScrollPos > currentScrollPos) {
-        setNavbarTop('0');
+        setNavbarTop("0");
       } else {
-        setNavbarTop('-80px');
+        setNavbarTop("-80px");
       }
       setPrevScrollPos(currentScrollPos);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
 
-  
-
-
- 
-  
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <div className=" bg-background min-h-screen w-full overflow-hidden flex flex-col  items-center">
-        <nav style={{ top: navbarTop }} className=" transition-all duration-500 z-50 animate__animated animate__slideInDown   bg-[#4d172e] from-[#4d172e] from-5% via-background  via-40% to-background to-50% b backdrop-blur-md    fixed flex justify-between items-center w-full max-w-[1468px] py-0   ">
+        <nav
+          style={{ top: navbarTop }}
+          className=" transition-all duration-500 z-50 animate__animated animate__slideInDown   bg-[#4d172e] from-[#4d172e] from-5% via-background  via-40% to-background to-50% b backdrop-blur-md    fixed flex justify-between items-center w-full max-w-full py-0   "
+        >
           <Link className=" ml-5 flex items-center" to="/balaod">
             <img
-              src="./logo-text.png"
-              className="  logo h-9 object-contain "
+              src={HeadLogo}
+              className="  logo h-10 object-contain "
               alt="Vite logo"
             />
           </Link>
           <nav className=" bg-accent h-[60px] text-accent-foreground flex  uppercase items-center justify-center">
-      
-            <div className=" flex h-full items-center justify-center w-full md:hidden">
-              <NavLink to="/balaod/page1" text="HOME" />
+            <div className=" flex h-full items-center font-regular justify-center w-full md:hidden">
+              <NavLink to="/balaod/home" text="HOME" />
 
-              <NavLink to="/balaod/page2" text="ABOUT US" />
+              <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
+                {" "}
+                {/* Dropdown Container */}
+                <button className=" flex items-center gap-2  ">
+                  ABOUT US{" "}
+                  <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
+                </button>
+                <div className="hidden w-[200px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
+                  <Link
+                    to="/balaod/about"
+                    onClick={(e) => {handleClick(e, 'who-we-are')
+                    navigate("/balaod/about")
+                      
+                    }}
+                    className=" font-fmedium capitalize px-3 py-4 text-sm border-b-[1px] tracking-wider bg-gray-200 hover:bg-background"
+                  >
+                    Who We Are?
+                  </Link>
+                  <Link
+                    to="/balaod/about"
+                    onClick={(e) => {handleClick(e, 'what-we-do')
+                    navigate("/balaod/about")
+                    }}
+                    className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
+                  >
+                    What We Do?
+                  </Link>
+                </div>
+              </div>
 
-              <NavLink to="/balaod/page4" text="Codlit" />
+              <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
+                {" "}
+                {/* Dropdown Container */}
+                <button className=" flex items-center gap-2 uppercase  ">
+                  Our programs{" "}
+                  <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
+                </button>
+                <div className="hidden w-[300px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
+                  <a
+                    href=""
+                    className=" font-fmedium capitalize px-3 py-4 text-sm border-b-[1px] tracking-wider bg-gray-200 hover:bg-background"
+                  >
+                    Human Rights Promotion
+                  </a>
+                  <a
+                    href=""
+                    className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
+                  >
+                    Environmental Justice
 
-              <NavLink to="/balaod/contact" text="Contact Us" />
+                  </a>
+                  <a
+                    href=""
+                    className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
+                  >
+                    Women and Children Protection
+                  </a>
+                  <a
+                    href=""
+                    className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
+                  >
+                   Institutional Development
+                  </a>
+                </div>
+              </div>
+
+
+              <NavLink to="/balaod/contact" text="Work With Us" />
 
               <span className="  px-10">
-                <div  className={ " search transition-all duration-150 bg-primary-foreground p-3 rounded-full hover:cursor-pointer px-5 " }>
+                <div
+                  className={
+                    " search transition-all duration-150 bg-primary-foreground p-3 rounded-full hover:cursor-pointer px-5 "
+                  }
+                >
                   <SearchIcon className=" text-accent w-5 h-5 " />
                 </div>
               </span>
@@ -74,8 +143,6 @@ function App() {
             </div>
           </nav>
         </nav>
-
-        
 
         <Outlet />
       </div>

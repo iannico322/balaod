@@ -24,10 +24,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/balaod/", 
-        element: <Navigate to="/balaod/page1" />, 
+        element: <Navigate to="/balaod/home" />, 
       },
       {
-        path: "/balaod/page1",
+        path: "/balaod/home",
         element: <>
         <Suspense fallback={<Loader />}>
           <Page1 />
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/page2",
+        path: "/balaod/about",
         element: <>
         <Suspense fallback={<Loader />}>
           <Page2 />
