@@ -21,6 +21,11 @@ const Programs = lazy(() =>
   wait(1300).then(() => import("./screens/Programs.tsx"))
 );
 
+const WorkUs = lazy(() =>
+  wait(1300).then(() => import("./screens/WorkUs.tsx"))
+);
+
+
 const router = createBrowserRouter([
   {
     path: "/balaod/",
@@ -52,6 +57,15 @@ const router = createBrowserRouter([
         element: <>
         <Suspense fallback={<Loader />}>
           <Programs/>
+        </Suspense>
+      </>,
+      },
+      
+      {
+        path: "/balaod/work-with-us",
+        element: <>
+        <Suspense fallback={<Loader />}>
+          <WorkUs/>
         </Suspense>
       </>,
       },

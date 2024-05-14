@@ -153,7 +153,7 @@ function App() {
               </div>
 
 
-              <NavLink to="/balaod/contact" text="Work With Us" />
+              <NavLink to="/balaod/work-with-us" text="Work With Us" />
 
               <span className="  px-10">
                 <div

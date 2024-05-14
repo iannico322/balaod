@@ -84,8 +84,8 @@ const Page1 = () => {
       </CoverSlide>
 
     
-        <div id="more" className=" rounded-sm px-20 sm:px-5 flex-col  w-full  min-h-0 pt-20 items-center justify-center  ">
-          <div className=" flex  justify-center gap-10  ">
+        <div id="more" className=" rounded-sm px-[5vw] sm:px-5 flex-col  w-full  min-h-0 pt-20 items-center justify-center  ">
+          <div className=" flex  justify-center gap-10 items-start  ">
           <Reveal2>
           <div className=" flex flex-col">
 
@@ -121,7 +121,7 @@ Balaod
           
         </TextSlide>
        <Reveal2>
-        <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4  gap-4   w-full sm:px-5 px-20 min-h-0  justify-center  ">
+        <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4  gap-4   w-full sm:px-5 px-[4vw] min-h-0  justify-center  ">
           <ActivitiesCard />
           <ActivitiesCard />
           <ActivitiesCard />
@@ -158,7 +158,7 @@ Balaod
   <div className=" w-full min-h-0 flex justify-center">
 
   
-<div  className=" flex flex-wrap justify-center   w-[60%] gap-5 sm:gap-2">
+<div  className=" flex flex-wrap justify-center   w-[90%] gap-5 sm:gap-2">
   {[partner1,partner2,partner3,partner4,partner5].map((e:any)=>(
     <img src={e} className=" col-span-1  h-32 sm:h-24 object-contain" alt="" />
   ))}
