@@ -4,41 +4,13 @@ import Logo from './../assets/images/logo/BalaodWhiteOutFull@3x.png'
 import { FacebookIcon, Mail, Twitter } from "lucide-react"
 import CoverSlide from "@/components/animation/coverSlide"
 import Cover from './../assets/images/samples/977fb91a-3b8d-486b-9ef9-67c7349a80a5.jpg'
-import Program1 from "./../assets/images/samples/programs1.png";
-import Program2 from "./../assets/images/samples/programs2.png";
-import Program3 from "./../assets/images/samples/programs3.jfif";
-import Program4 from "./../assets/images/samples/programs4.jfif";
-import Reveal4 from "@/components/animation/reveal4"
-import { Button } from '@/components/ui/button';
+
 
 
 
 
 const WorkUs = () => {
-  const programs =[{
-    title:"Human Rights Promotion",
-    img:Program1,
-    description:"This involves the work of assessing the status of human rights in many marginalized communities, capacitating community paralegals in forwarding their rights, and facilitating the advocation of policies and programs that strengthen and enhance their rights-claiming mechanisms."
-  },
-  {
-    title:"Environmental Justice",
-    img:Program2,
-    description:"BALAOD firmly believes that all the natural resources: land, trees, air, water and all the living plants and animals are critical common resources that must be shared and enjoyed by, and for the growth and development of,  all generations, present and future. "
-  },
-  {
-    title:"Women and Children Protection",
-    img:Program3,
-    description:"The number of cases of abuse, exploitation and discrimination against women and children in our society show the extent by which this affected sector are marginalized, oppressed and objectified. BALAOD strives to work for the dismantling of structural policies, discriminate practices and even traditional mindsets that put women and children at the oppressive end."
-  },
-
-  {
-    title:"Institutional Development",
-    img:Program4,
-    description:"In order to effectively perform its mission and successfully pursue its vision, BALAOD must also strive to continuously enhance its operations and ways of doing things in order to be responsive to the needs of its partner communities and to the challenges posed upon by society."
-  },
-
-
-]
+  
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
     <CoverSlide>
