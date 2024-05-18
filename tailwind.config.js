@@ -91,6 +91,11 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "marque": {
+          '0%': { transform: 'translateX(-100%)' },
+          '50%':  { transform: 'translateX(0%)' },
+          '100%':  { transform: 'translateX(-100%)' },
+        },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -99,9 +104,17 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        floatHouse: {
+         
+          '0%': { transform: 'translateX(10vw) rotate(0deg)',   },
+          '100%': {transform: 'translateX(100vw) rotate(0deg)' },
+        },
       },
       animation: {
+        floatHouse: 'floatHouse 20s infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
+        "marquee": "marquee 5s ease-out ",
+
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },

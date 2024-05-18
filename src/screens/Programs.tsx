@@ -1,7 +1,5 @@
 
 
-import Logo from './../assets/images/logo/BalaodWhiteOutFull@3x.png'
-import { FacebookIcon, Mail, Twitter } from "lucide-react"
 import CoverSlide from "@/components/animation/coverSlide"
 import Cover from './../assets/images/samples/programs1.png'
 import Program1 from "./../assets/images/samples/programs1.png";
@@ -9,6 +7,7 @@ import Program2 from "./../assets/images/samples/programs2.png";
 import Program3 from "./../assets/images/samples/programs3.jfif";
 import Program4 from "./../assets/images/samples/programs4.jfif";
 import Reveal4 from "@/components/animation/reveal4"
+import Footer from '@/components/footer/Footer';
 
 
 
@@ -64,7 +63,7 @@ const Programs = () => {
     {
       programs.map((e:any)=>(
        
-        <div id={e.title} className=" relative flex rounded-sm px-20  sm:px-5 flex-col justify-center  w-full min-h-[50vh] py-20  items-start">
+        <div id={e.title} className=" animate__animated animate__fadeIn relative flex rounded-sm px-20  sm:px-5 flex-col justify-center  w-full min-h-[50vh] py-20  items-start">
 
       <div className=" flex flex-col items-end gap-10  ">
       
@@ -90,45 +89,7 @@ const Programs = () => {
 
    
         
-        <footer className=" min-h-0 py-10 mt-40 pb-5 items-start flex w-full justify-center bg-primary  border border-none border-t-2 border-primary-foreground text-accent">
-        <div className=" px-20 w-[80%] flex items-start justify-between">
-          <div className=" flex items-start gap-10 font-flight">
-            <div className=" flex flex-col items-start gap-2">
-            <img src={Logo} className="  h-24 object-contain" alt="" />
-            <p className=" text-base text-accent">Copyright © 2024 Balaod Mindanaw.</p>
-          </div>
-
-          <div className=" flex flex-col gap-2 text-sm">
-            <p className=" cursor-pointer">Home</p>
-            <p className=" cursor-pointer">About Us</p>
-            <p className=" cursor-pointer">Our Programs</p>
-            <p className=" cursor-pointer">Work With Us</p>
-
-          </div>
-
-          <div className=" flex flex-col gap-2 text-sm">
-            <a href="#who-we-are" className=" cursor-pointer">Who we are?</a>
-            <a href="#what-we-do" className=" cursor-pointer">What we Do?</a>
-
-          </div>
-          </div>
-          
-
-          <div>
-            <h1 className=" font-fbold">CONTACT US</h1>
-            <p className=" font-fregular">(+63) 923-1271-122 <br />
-balaodmindaw@bakaod.org <br />
-Cagayan de Oro City, PH, 9000</p>
-<div className=" flex gap-5 py-5 cursor-pointer ">
-
-  <FacebookIcon/> <Twitter/> <Mail/>
-</div>
-          </div>
-          
-
-        </div>
-
-      </footer>
+        <Footer/>
   
     </div>
   )

@@ -7,7 +7,8 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { ChevronDown, MenuIcon, SearchIcon } from "lucide-react";
 import NavLink from "./components/link/link";
 import { useEffect, useState } from "react";
-import HeadLogo from "./assets/images/logo/BalaodWhiteOutFull@3x.png";
+import HeadLogo from "./assets/images/logo/BalaodWhite.png";
+import { Cookies } from "./screens/Cookies";
 
 function App() {
   const navigate = useNavigate()
@@ -77,7 +78,7 @@ function App() {
                     }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm border-b-[1px] tracking-wider bg-gray-200 hover:bg-background"
                   >
-                    Who We Are?
+                    Who We Are
                   </Link>
                   <Link
                     to="/balaod/about"
@@ -87,7 +88,7 @@ function App() {
                     }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
                   >
-                    What We Do?
+                    What We Do
                   </Link>
                 </div>
               </div>
@@ -152,7 +153,7 @@ function App() {
                 </div>
               </div>
 
-
+              <NavLink to="/balaod/work-with-us" text="Kudlit" />     
               <NavLink to="/balaod/work-with-us" text="Work With Us" />
 
               <span className="  px-10">
@@ -170,6 +171,8 @@ function App() {
             </div>
           </nav>
         </nav>
+                  
+        <Cookies/>
 
         <Outlet />
       </div>
