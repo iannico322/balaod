@@ -2,7 +2,7 @@
 
 
 import CoverSlide from "@/components/animation/coverSlide"
-import Cover from './../assets/images/samples/9d146eac-ca05-4249-9eaf-37fdee7ec489.jfif'
+import Cover from './../assets/images/samples/438161546_463636099496909_3614983135274376987_n.jpg'
 
 import QR from './../assets/images/samples/BALAOD Mindanaw_qrcode.png'
 import Footer from '@/components/footer/Footer'
@@ -29,7 +29,7 @@ const WorkUs = () => {
     </CoverSlide>
 
 
-    <h1 className="  bg-primary-foreground py-5 px-10 w-full  text-accent font-fbold  md:text-4xl text-2xl font-semibold text-center">Contact Details</h1>
+    <h1 className="  bg-primary-foreground py-5 px-10 w-full  text-accent font-fbold  md:text-4xl text-xl font-semibold text-center">Contact Details</h1>
 
     <div className=' flex md:flex-col justify-around'>
 
@@ -48,12 +48,12 @@ const WorkUs = () => {
       {
         head:"Address",
         url:"https://www.facebook.com/BALAODMindanaw",
-        link:"B19 L24, Kalantas St., P.N Roa, Calaanan, Canitoan, Cagayan de Oro, PH, 9000"
+        link:"Cagayan de Oro, PH, 9000"
       }
 
 
-      ].map((e:any)=>(
-        <div className=' flex flex-col gap-2' >
+      ].map((e:any,key:any)=>(
+        <div key={key} className=' flex flex-col gap-2' >
         <h1 className=' font-fbold text-xl text-primary uppercase'>{e.head}</h1>
         <a className=' w-[300px] cursor-pointer text-gray-600 pl-5 font-fregular' href={e.url
         }>{e.link

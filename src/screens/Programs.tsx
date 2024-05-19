@@ -61,9 +61,9 @@ const Programs = () => {
 
 
     {
-      programs.map((e:any)=>(
+      programs.map((e:any,key)=>(
        
-        <div id={e.title} className=" animate__animated animate__fadeIn relative flex rounded-sm px-20  sm:px-5 flex-col justify-center  w-full min-h-[50vh] py-20  items-start">
+        <div key={key} id={e.title} className=" animate__animated animate__fadeIn relative flex rounded-sm px-20  sm:px-5 flex-col justify-center  w-full min-h-[50vh] py-20  items-start">
 
       <div className=" flex flex-col items-end gap-10  ">
       

@@ -281,8 +281,8 @@ Balaod
 <Reveal2>
   <div className=" w-full min-h-0 flex justify-center">
 <div  className=" grid grid-cols-3 items-center justify-center w-full gap-10  sm:gap-2">
-  {[partner7,partner6,partner5].map((e:any)=>(
-    <div className=" flex flex-col gap-5">
+  {[partner7,partner6,partner5].map((e:any,key:any)=>(
+    <div key={key} className=" flex flex-col gap-5">
       <img src={e} className=" col-span-1 sm:col-span-3 justify-self-center h-36 sm:h-24 object-contain" alt="" />
       
     </div>

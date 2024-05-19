@@ -45,8 +45,8 @@ const AboutUs = () => {
 
           <Reveal2>
           <div className=" relative w-full pt-20 min-h-0 max-h-[38vh] overflow-hidden  grid grid-cols-3 gap-2">
-            {[image1,image2,image3].map((e:any)=>(
-              <img src={e} className="  justify-self-center col-span-1 object-cover" alt="" />
+            {[image1,image2,image3].map((e:any,key:any)=>(
+              <img key={key} src={e} className="  justify-self-center col-span-1 object-cover" alt="" />
             ))}
          
 

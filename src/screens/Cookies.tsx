@@ -21,7 +21,7 @@ export function Cookies() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-      <div className=" animate__animated animate__slideInUp fixed   z-50 m-4 cursor-pointer h-14 w-14  flex items-center justify-center bg-accent  bottom-0 left-0 rounded-full">
+      <div className="  animate__animated animate__slideInUp fixed   z-50 m-4 cursor-pointer h-14 w-14  flex items-center justify-center bg-accent  bottom-0 left-0 rounded-full">
                   <CookieIcon className=" text-primary"/>
         </div>
       </DrawerTrigger>

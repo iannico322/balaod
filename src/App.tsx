@@ -63,10 +63,10 @@ function App() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <button className=" flex items-center gap-2  ">
+                <Link to="/balaod/about" className=" flex items-center gap-2  ">
                   ABOUT US{" "}
                   <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
-                </button>
+                </Link>
                 <div className="hidden w-[200px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
                     to="/balaod/about"
@@ -96,10 +96,10 @@ function App() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <button className=" flex items-center gap-2 uppercase  ">
+                <Link to="/balaod/programs" className=" flex items-center gap-2 uppercase  ">
                   Our programs{" "}
                   <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
-                </button>
+                </Link>
                 <div className="hidden w-[300px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
                      to="/balaod/programs"
