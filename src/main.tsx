@@ -8,6 +8,16 @@ import { Suspense, lazy } from "react";
 import NotFound from "./screens/notFound";
 import Loader from './components/loader/loader.tsx';
 
+
+const Blog= lazy(() =>
+  wait(1300).then(() => import('./screens/Blog/Blog.tsx'))
+);
+
+
+
+const Kudlit = lazy(() =>
+  wait(1300).then(() => import('./screens/Kudlit.tsx'))
+);
 const Page1= lazy(() =>
   wait(1300).then(() => import("./screens/Home.tsx"))
 );
@@ -66,6 +76,22 @@ const router = createBrowserRouter([
         element: <>
         <Suspense fallback={<Loader />}>
           <WorkUs/>
+        </Suspense>
+      </>,
+      },
+      {
+        path: "/balaod/kudlit",
+        element: <>
+        <Suspense fallback={<Loader />}>
+          <Kudlit/>
+        </Suspense>
+      </>,
+      },
+      {
+        path: "/balaod/blog/:uid/",
+        element: <>
+        <Suspense fallback={<Loader />}>
+          <Blog/>
         </Suspense>
       </>,
       },

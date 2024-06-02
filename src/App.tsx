@@ -58,12 +58,25 @@ function App() {
           </Link>
           <nav className=" bg-accent h-[60px] text-accent-foreground flex  uppercase items-center justify-center">
             <div className=" flex h-full items-center font-regular justify-center w-full md:hidden">
-              <NavLink to="/balaod" text="HOME" />
+              <NavLink onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/balaod/home")
+              
+                
+              }} text="HOME" />
 
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <Link to="/balaod/about" className=" flex items-center gap-2  ">
+                <Link to="/balaod/about"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/balaod/about")
+                
+                  
+                }}
+                
+                className=" flex items-center gap-2  ">
                   ABOUT US{" "}
                   <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
                 </Link>
@@ -72,6 +85,7 @@ function App() {
                     to="/balaod/about"
                     onClick={(e) => {
                       navigate("/balaod/about#who-we-are")
+                      window.scrollTo(0, 0);
                       handleClick(e, 'who-we-are')
                     
                       
@@ -96,7 +110,15 @@ function App() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <Link to="/balaod/programs" className=" flex items-center gap-2 uppercase  ">
+                <Link to="/balaod/programs"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/balaod/programs")
+                
+                  
+                }}
+                
+                className=" flex items-center gap-2 uppercase  ">
                   Our programs{" "}
                   <ChevronDown className=" group-hover:rotate-180 transition-all duration-75 w-4 h-4" />{" "}
                 </Link>
@@ -153,14 +175,32 @@ function App() {
                 </div>
               </div>
 
-              <NavLink to="/balaod/work-with-us" text="Kudlit" />     
-              <NavLink to="/balaod/work-with-us" text="Work With Us" />
+              <NavLink
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/balaod/kudlit")
+                
+              }}
+              text="Kudlit" />     
+              <NavLink 
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/balaod/work-with-us")
+              
+                
+              }}
+              text="Work With Us" />
 
               <span className="  px-10">
                 <div
                   className={
                     " search transition-all duration-150 bg-primary-foreground p-3 rounded-full hover:cursor-pointer px-5 "
                   }
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    navigate("/balaod/kudlit")
+                    
+                  }}
                 >
                   <SearchIcon className=" text-accent w-5 h-5 " />
                 </div>

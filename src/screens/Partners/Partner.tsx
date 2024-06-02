@@ -16,7 +16,7 @@ const EmblaCarousel = (props:any) => {
   return (
     <div className="embla ">
       <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+        <div className="embla__container sm:gap-1">
           {slides.map((e:any,index:any) => (
             <div className="embla__slide flex  justify-center" key={index}>
               <img src={e} className=" col-span-1  h-32 sm:h-24 object-contain" alt="" />

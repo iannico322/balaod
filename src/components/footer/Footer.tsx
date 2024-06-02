@@ -1,8 +1,9 @@
 import { FacebookIcon, LocateFixedIcon, Mail, PhoneCallIcon, Twitter } from 'lucide-react'
 import Logo from './../../assets/images/logo/BalaodWhiteOutFull@3x.png'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+  const navigate = useNavigate()
   return (
     <footer className=" min-h-0 py-10 pb-5 items-start flex sm:flex-col w-full justify-center bg-primary  border border-none border-t-2 border-primary-foreground text-accent">
     <div className=" px-20 sm:px-4 w-[80%] sm:w-full sm:gap-10 flex sm:flex-col items-center justify-between">
@@ -14,11 +15,30 @@ const Footer = () => {
 
       <div className=" flex flex-col sm:hidden gap-2 sm:gap-1 text-sm sm:text-xs">
 
-        <Link to='/balaod/' className=" cursor-pointer">Home</Link>
-        <Link to='/balaod/about'  className=" cursor-pointer">About Us</Link>
-        <Link to='/balaod/programs'  className=" cursor-pointer">Our Programs</Link>
+        <div  onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/balaod/")
+                  
+                }}className=" cursor-pointer">Home</div>
+        <div 
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate("/balaod/about")
+        }} 
+        className=" cursor-pointer">About Us</div>
+        <div 
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate('/balaod/programs')
+        }} 
+        className=" cursor-pointer">Our Programs</div>
         <p className=" cursor-pointer">Kudlit</p>
-        <Link to='/balaod/work-with-us'  className=" cursor-pointer">Work With Us</Link>
+        <div 
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate('/balaod/work-with-us')
+        }} 
+        className=" cursor-pointer">Work With Us</div>
 
       </div>
 
@@ -31,13 +51,13 @@ const Footer = () => {
           <h1 className=" font-fbold mb-3">CONTACT US</h1>
         <p className=" font-fregular flex items-center gap-2"> <PhoneCallIcon className=' h-4 w-4'/> (082) 880 3216 </p>
         <p className=" font-fregular flex items-center gap-2"> <Mail className=' h-4 w-4'/> info@balaod.org <br /> </p>
-        <p className=" font-fregular flex items-start pl-6">balaodmindaw@bakaod.org</p> 
+        <p className=" font-fregular flex items-start pl-6">balaodmindaw@balaod.org</p> 
         <p className=" font-fregular flex items-center gap-2"> <LocateFixedIcon className=' h-4 w-4'/> Cagayan de Oro City, PH, 9000</p>
 
         </div>
         
 
-<div className=" flex sm:flex-col gap-5 py-5 sm:py-0 cursor-pointer  ">
+<div className=" flex sm:flex-col gap-5 py-5 sm:justify-center sm:py-0 cursor-pointer  ">
 
 <FacebookIcon className=' sm:h-5 sm:w-5'/> <Twitter className=' sm:h-5 sm:w-5'/> <Mail className=' sm:h-5 sm:w-5'/>
 </div>
