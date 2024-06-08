@@ -41,6 +41,13 @@ const Blog = () => {
 
   },[])
 
+  function formatDate(dateString:any) {
+    const date = new Date(dateString);
+    const options:any = { year: 'numeric', month: 'long', day: '2-digit' };
+  
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  }
+
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
 
@@ -54,7 +61,7 @@ const Blog = () => {
         Kudlit
     </Link>
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
-        <p>{data.date} </p>
+        <p>{data.date?formatDate(data.date):""}</p>
         {data.location?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
     </div>
 

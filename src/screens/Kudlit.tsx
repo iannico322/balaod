@@ -122,6 +122,12 @@ const Kudlit = () => {
     return { __html: DOMPurify.sanitize(truncateText (contentToDisplay,200)) }; 
   };
   
+  function formatDate(dateString:any) {
+    const date = new Date(dateString);
+    const options:any = { year: 'numeric', month: 'long', day: '2-digit' };
+  
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  }
   
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
@@ -197,7 +203,7 @@ const Kudlit = () => {
         </span>
       </div>
       <div className="  text-sm font-fregular text-gray-500">
-        <span>{e.date}</span>
+        <span>{e.date?formatDate(e.date):""}</span>
       </div>
     </div>
       </div>
