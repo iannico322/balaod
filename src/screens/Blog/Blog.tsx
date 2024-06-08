@@ -59,7 +59,7 @@ const Blog = () => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
         Kudlit
-    </Link>
+    </Link> 
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
         <p>{data.date?formatDate(data.date):""}</p>
         {data.location?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
