@@ -1,9 +1,5 @@
 import Reveal2 from "@/components/animation/reveal2"
 import Reveal3 from "@/components/animation/reveal3"
-
-import image1 from './../assets/images/samples/about-us-1.jfif'
-import image2 from './../assets/images/samples/about-us-2.jfif'
-import image3 from './../assets/images/samples/about-us-3.jfif'
 import CoverSlide from "@/components/animation/coverSlide"
 import Cover from './../assets/images/samples/9d146eac-ca05-4249-9eaf-37fdee7ec489.jfif'
 import Footer from "@/components/footer/Footer"
@@ -45,8 +41,8 @@ const AboutUs = () => {
 
           <Reveal2>
           <div className=" relative w-full pt-20 min-h-0 max-h-[38vh] overflow-hidden  grid grid-cols-3 gap-2">
-            {[image1,image2,image3].map((e:any,key:any)=>(
-              <img key={key} src={e} className="  justify-self-center col-span-1 object-cover" alt="" />
+            {JSON.parse(localStorage.getItem('whatWeDo')||"").map((e:any,key:any)=>(
+              <img key={key} src={e.imageURL} className="  justify-self-center col-span-1 object-cover" alt="" />
             ))}
          
 

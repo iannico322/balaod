@@ -1,16 +1,46 @@
 
 import Footer from '@/components/footer/Footer'
 import Tiptap from './Tiptap'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { LocateIcon } from 'lucide-react'
+import axios from './../../plugin/axios'
+import { useEffect, useState } from 'react'
 
 
 
 const Blog = () => {
+ const  id  = useParams();
+ const [_loading,setLoading] = useState(false)
+
+ const [data,setData]:any = useState([])
+
+  async function GetBlog()  {
+    setLoading(true)
+    await axios.get(`posting/${id.uid}`).then((e:any)=>{
+
+    //  console.log(e.data)
+      setData(e.data.activity)
+    
+      
+      setTimeout(()=>{
+        setLoading(false)
+      },1000)
+    })
+
+    setTimeout(()=>{
+      setLoading(false)
+    },10000)
+  }
+
+  useEffect(()=>{
+  
+    GetBlog()
+  },[])
+
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
 
-<img src={JSON.parse(localStorage.getItem("selected" )|| "").image} className=' mt-5 text-xl mb-5 object-cover h-[50vh]' alt="" />
+<img src={data.imageURL} className=' mt-5 text-xl mb-5 object-cover h-[50vh]' alt="" />
 
         <div className=" mt-5 px-[10vw] md:px-5">
         <Link to="/balaod/kudlit" className=" w-[90px] font-fmedium flex items-center justify-between px-2 py-2 bg-background text-black font-bold border border-gray-300 hover:bg-[#e4e4e4]">
@@ -20,17 +50,17 @@ const Blog = () => {
         Kudlit
     </Link>
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
-        <p>{JSON.parse(localStorage.getItem("selected" )|| "").date} </p>
-        <p className=' flex gap-3 items-center'> <LocateIcon className=' h-4 w-4'/> Cagayan de Oro, 9000</p> 
+        <p>{data.date} </p>
+        <p className=' flex gap-3 items-center'> <LocateIcon className=' h-4 w-4'/></p> 
     </div>
 
     <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 mb-36">
 
     
     <div>
-            <h1 className=" text-primary text-3xl font-fbold">{JSON.parse(localStorage.getItem("selected" )|| "").title}
+            <h1 className=" text-primary text-3xl font-fbold">{data.title}
             </h1>
-        <p className=' font-fmedium'>By: {JSON.parse(localStorage.getItem("selected" )|| "").author}</p>
+        <p className=' font-fmedium'>{}</p>
         </div>
 
     <Tiptap/>

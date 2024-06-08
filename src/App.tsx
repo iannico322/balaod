@@ -9,6 +9,7 @@ import NavLink from "./components/link/link";
 import { useEffect, useState } from "react";
 import HeadLogo from "./assets/images/logo/BalaodWhite.png";
 import { Cookies } from "./screens/Cookies";
+import axios from "./plugin/axios";
 
 function App() {
   const navigate = useNavigate()
@@ -24,6 +25,23 @@ function App() {
     }
   };
 
+
+  function GetData(){
+    try {
+      axios.get('posting/').then((e:any)=>{
+      console.log(e.data)
+      localStorage.setItem('activities',JSON.stringify(e.data.activities))
+      localStorage.setItem('partners',JSON.stringify(e.data.partners))
+      localStorage.setItem('whatWeDo',JSON.stringify(e.data.whatWeDo))
+    })
+    } catch (error) {
+      console.log("server Down hehe")
+    }
+    
+  }
+  useEffect(()=>{
+    GetData()
+  },[])
 
   useEffect(() => {
     const handleScroll = () => {

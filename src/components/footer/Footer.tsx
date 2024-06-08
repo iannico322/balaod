@@ -51,7 +51,7 @@ const Footer = () => {
           <h1 className=" font-fbold mb-3">CONTACT US</h1>
         <p className=" font-fregular flex items-center gap-2"> <PhoneCallIcon className=' h-4 w-4'/> (082) 880 3216 </p>
         <p className=" font-fregular flex items-center gap-2"> <Mail className=' h-4 w-4'/> info@balaod.org <br /> </p>
-        <p className=" font-fregular flex items-start pl-6">balaodmindaw@balaod.org</p> 
+        <p className=" font-fregular flex items-start pl-6">balaodmindanaw@gmail.com</p> 
         <p className=" font-fregular flex items-center gap-2"> <LocateFixedIcon className=' h-4 w-4'/> Cagayan de Oro City, PH, 9000</p>
 
         </div>
