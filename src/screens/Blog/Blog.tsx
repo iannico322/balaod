@@ -12,14 +12,17 @@ const Blog = () => {
  const  id  = useParams();
  const [_loading,setLoading] = useState(false)
 
- const [data,setData]:any = useState([])
+ const [data,setData]:any = useState({})
 
   async function GetBlog()  {
     setLoading(true)
     await axios.get(`posting/${id.uid}`).then((e:any)=>{
 
-    //  console.log(e.data)
+   
       setData(e.data.activity)
+
+      console.log(e.data.activity.content)
+     
     
       
       setTimeout(()=>{
@@ -35,6 +38,7 @@ const Blog = () => {
   useEffect(()=>{
   
     GetBlog()
+
   },[])
 
   return (
@@ -51,7 +55,7 @@ const Blog = () => {
     </Link>
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
         <p>{data.date} </p>
-        <p className=' flex gap-3 items-center'> <LocateIcon className=' h-4 w-4'/></p> 
+        {data.location?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
     </div>
 
     <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 mb-36">
@@ -63,7 +67,7 @@ const Blog = () => {
         <p className=' font-fmedium'>{}</p>
         </div>
 
-    <Tiptap/>
+    <Tiptap con={data.content} />
 {/*         
         <div>
             <h1 className=" text-primary text-3xl font-fbold">Community Engagement: Local Citizens Participate in Process

@@ -1,17 +1,10 @@
-import { useState } from 'react';
-import { useEditor, EditorContent, BubbleMenu } from '@tiptap/react';
+import { useEffect, useState } from 'react';
+import { useEditor} from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
 import TextStyle from '@tiptap/extension-text-style';
 import Color from '@tiptap/extension-color';
-import {
-  Eraser,
-  XSquare,
-  AlignLeft,
-  AlignCenter,
-  AlignRight,
-  AlignJustify,
-} from 'lucide-react';
+
 import FontSize from './FontSize';
 import './styles.css';
 
@@ -27,11 +20,17 @@ const extensions:any = [
   FontSize, // Add the FontSize extension
 ];
 
-const Tiptap = () => {
-  const [selectedFontSize, setSelectedFontSize] = useState(16);
-  const [content, setContent] = useState(JSON.parse(localStorage.getItem("selected" )|| "").content);
-  const [fontSizeMenuOpen, setFontSizeMenuOpen] = useState(false);
-  const [headingMenuOpen, setHeadingMenuOpen] = useState(false);
+ const Tiptap = ({con}:any) => {
+  const [_selectedFontSize, setSelectedFontSize] = useState(16);
+  const [content, setContent] = useState(con);
+  // const [fontSizeMenuOpen, setFontSizeMenuOpen] = useState(false);
+  // const [headingMenuOpen, setHeadingMenuOpen] = useState(false);
+
+  useEffect(()=>{
+    setContent(`${con}`)
+
+
+  },[con])
 
   const editor:any = useEditor({
     extensions,
@@ -48,32 +47,32 @@ const Tiptap = () => {
     return null;
   }
 
-  // const renderContent = (htmlContent:any) => {
-  //  // Assuming selectedFontSize is a number
-  //   return { __html: htmlContent.replace(/<p><\/p>/g, '<p><br></p>').replace(/\n/g, '<br>').replace(/<p>/g, `<p>`) };
+  const renderContent = (htmlContent:any) => {
+   // Assuming selectedFontSize is a number
+    return { __html: htmlContent.replace(/<p><\/p>/g, '<p><br></p>').replace(/\n/g, '<br>').replace(/<p>/g, `<p>`) };
+  };
+
+  // const handleFontSizeChange = (size: any) => {
+  //   editor.chain().focus().setFontSize(size).run();
+  //   setSelectedFontSize(size);
+  //   setFontSizeMenuOpen(false);
   // };
 
-  const handleFontSizeChange = (size: any) => {
-    editor.chain().focus().setFontSize(size).run();
-    setSelectedFontSize(size);
-    setFontSizeMenuOpen(false);
-  };
+  // const toggleFontSizeMenu = () => {
+  //   setFontSizeMenuOpen(!fontSizeMenuOpen);
+  //   setHeadingMenuOpen(false); // Close the heading menu if it's open
+  // };
 
-  const toggleFontSizeMenu = () => {
-    setFontSizeMenuOpen(!fontSizeMenuOpen);
-    setHeadingMenuOpen(false); // Close the heading menu if it's open
-  };
-
-  const toggleHeadingMenu = () => {
-    setHeadingMenuOpen(!headingMenuOpen);
-    setFontSizeMenuOpen(false); // Close the font size menu if it's open
-  };
+  // const toggleHeadingMenu = () => {
+  //   setHeadingMenuOpen(!headingMenuOpen);
+  //   setFontSizeMenuOpen(false); // Close the font size menu if it's open
+  // };
 
   return (
     <div className="">
-      <EditorContent editor={editor} className="tiptap text-w  " />
+      {/* <EditorContent editor={editor} className="tiptap text-w  " /> */}
 
-      <BubbleMenu editor={editor} className="bg-white gap-4 outline-none rounded shadow-lg p-2 mt-2 flex flex-wrap">
+      {/* <BubbleMenu editor={editor} className="bg-white gap-4 outline-none rounded shadow-lg p-2 mt-2 flex flex-wrap">
         <button onClick={() => editor.chain().focus().toggleBold().run()} className={`btn ${editor.isActive('bold') ? 'font-bold' : ''}`}>B</button>
         <button onClick={() => editor.chain().focus().toggleItalic().run()} className={`btn ${editor.isActive('italic') ? 'font-bold' : ''}`}>I</button>
         <button onClick={() => editor.chain().focus().unsetAllMarks().run()} className="btn"><Eraser /></button>
@@ -123,9 +122,9 @@ const Tiptap = () => {
             </div>
           )}
         </div>
-      </BubbleMenu>
+      </BubbleMenu> */}
 
-      {/* <div className="tiptap outline-none " dangerouslySetInnerHTML={renderContent(content)} /> */}
+      <div className="tiptap outline-none " dangerouslySetInnerHTML={renderContent(content)} />
     </div>
   );
 };
