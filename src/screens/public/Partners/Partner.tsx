@@ -18,7 +18,7 @@ const EmblaCarousel = (props:any) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container sm:gap-1">
           {slides.map((e:any,index:any) => (
-            <a href={e.linkToPage?e.linkToPage:'#'} className="embla__slide flex  justify-center" key={index}>
+            <a href={e.linkToPage?e.linkToPage:'#'} target='_blank' className="embla__slide flex  justify-center" key={index}>
               <img src={e.imageURL} className=" col-span-1  h-32 sm:h-24 object-contain" alt="" />
             </a>
           ))}

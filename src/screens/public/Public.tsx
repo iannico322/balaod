@@ -5,13 +5,13 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 // import { ModeToggle } from "./components/mode-toggle";
 // import Reveal from "./components/animation/reveal";
 import { ChevronDown, MenuIcon, SearchIcon } from "lucide-react";
-import NavLink from "./components/link/link";
+import NavLink from "../../components/link/link";
 import { useEffect, useState } from "react";
-import HeadLogo from "./assets/images/logo/BalaodWhite.png";
-import { Cookies } from "./screens/Cookies";
-import axios from "./plugin/axios";
+import HeadLogo from "./../../assets/images/logo/BalaodWhite.png";
+import { Cookies } from "./Cookies";
+import axios from "../../plugin/axios";
 
-function App() {
+function Public() {
   const navigate = useNavigate()
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
   const [navbarTop, setNavbarTop] = useState<string>("0");
@@ -238,4 +238,4 @@ function App() {
   );
 }
 
-export default App;
+export default Public;

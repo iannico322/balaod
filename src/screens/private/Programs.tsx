@@ -1,11 +1,11 @@
 
 
 import CoverSlide from "@/components/animation/coverSlide"
-import Cover from './../assets/images/samples/programs1.png'
-import Program1 from "./../assets/images/samples/programs1.png";
-import Program2 from "./../assets/images/samples/programs2.png";
-import Program3 from "./../assets/images/samples/programs3.jfif";
-import Program4 from "./../assets/images/samples/programs4.jfif";
+import Cover from './../../assets/images/samples/programs1.png'
+import Program1 from "./../../assets/images/samples/programs1.png";
+import Program2 from "./../../assets/images/samples/programs2.png";
+import Program3 from "./../../assets/images/samples/programs3.jfif";
+import Program4 from "./../../assets/images/samples/programs4.jfif";
 import Reveal4 from "@/components/animation/reveal4"
 import Footer from '@/components/footer/Footer';
 

@@ -2,9 +2,9 @@
 
 
 import CoverSlide from "@/components/animation/coverSlide"
-import Cover from './../assets/images/samples/438161546_463636099496909_3614983135274376987_n.jpg'
+import Cover from './../../assets/images/samples/438161546_463636099496909_3614983135274376987_n.jpg'
 
-import QR from './../assets/images/samples/BALAOD Mindanaw_qrcode.png'
+import QR from './../../assets/images/samples/BALAOD Mindanaw_qrcode.png'
 import Footer from '@/components/footer/Footer'
 
 

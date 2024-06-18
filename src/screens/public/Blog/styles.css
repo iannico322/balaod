@@ -1,0 +1,71 @@
+/* Basic editor styles */
+@font-face {
+  font-family: 'Montserrat';
+  src: url("./../../assets/fonts/Montserrat-Regular.ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  font-size: 16px;
+}
+
+.tiptap {
+  outline: none;
+  color: #171719;
+}
+
+.tiptap h1 {
+  font-weight: bolder;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.tiptap h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.tiptap h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.tiptap p {
+  font-size: 1rem;
+}
+
+.tiptap code {
+  background-color: #f4f4f5;
+  color: #181c4c;
+}
+
+.tiptap pre {
+  font-family: Montserrat,sans-serif;
+  text-wrap: wrap;
+  background: #f4f4f5;
+  color: #1b1b1b;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.tiptap pre code {
+  font-family: Montserrat,sans-serif;
+  text-wrap: wrap;
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.tiptap blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+
+.tiptap hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}

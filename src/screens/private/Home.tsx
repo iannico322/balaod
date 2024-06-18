@@ -3,10 +3,10 @@ import TextSlide from "@/components/animation/textSlide";
 import Reveal2 from "@/components/animation/reveal2";
 import Reveal3 from "@/components/animation/reveal3";
 
-import partner5 from "./../assets/images/partners/DSWD-Logo.png";
+import partner5 from "./../../assets/images/partners/DSWD-Logo.png";
 
-import partner6 from "./../assets/images/partners/sec.png";
-import partner7 from "./../assets/images/partners/cdo_seal.png";
+import partner6 from "./../../assets/images/partners/sec.png";
+import partner7 from "./../../assets/images/partners/cdo_seal.png";
 
 import Footer from "@/components/footer/Footer";
 
@@ -54,7 +54,7 @@ const Page1 = () => {
       <hr className=" w-full border border-primary h-2 border-none border-b-2" />
       <Activities />
 
-      <Partners/>
+      <Partners data={JSON.parse(localStorage.getItem("partners")||"")}/>
 
       <div
         id="Accreditations"

@@ -6,7 +6,7 @@ import Footer from '@/components/footer/Footer'
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import DOMPurify from 'dompurify';
-import axios from "./../plugin/axios"
+import axios from "../../plugin/axios"
 import { Skeleton } from "@/components/ui/skeleton"
 
 

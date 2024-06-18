@@ -4,7 +4,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay} from 'swiper/modules';
 import CoverSlide from "@/components/animation/coverSlide"
-import Cover from './../../assets/images/samples/42fb9365-3627-4ac0-8127-4305a99fe179.jfif'
+import Cover from './../../../assets/images/samples/42fb9365-3627-4ac0-8127-4305a99fe179.jfif'
 import Reveal from '@/components/animation/reveal';
 import { useNavigate } from 'react-router-dom';
 

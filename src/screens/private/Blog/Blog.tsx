@@ -3,7 +3,7 @@ import Footer from '@/components/footer/Footer'
 import Tiptap from './Tiptap'
 import { Link, useParams } from 'react-router-dom'
 import { LocateIcon } from 'lucide-react'
-import axios from './../../plugin/axios'
+import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
 
 

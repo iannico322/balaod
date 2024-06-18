@@ -1,7 +1,7 @@
 import Reveal2 from "@/components/animation/reveal2"
 import Reveal3 from "@/components/animation/reveal3"
 import CoverSlide from "@/components/animation/coverSlide"
-import Cover from './../assets/images/samples/9d146eac-ca05-4249-9eaf-37fdee7ec489.jfif'
+import Cover from './../../assets/images/samples/9d146eac-ca05-4249-9eaf-37fdee7ec489.jfif'
 import Footer from "@/components/footer/Footer"
 
 const AboutUs = () => {
