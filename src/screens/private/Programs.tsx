@@ -8,6 +8,7 @@ import Program3 from "./../../assets/images/samples/programs3.jfif";
 import Program4 from "./../../assets/images/samples/programs4.jfif";
 import Reveal4 from "@/components/animation/reveal4"
 import Footer from '@/components/footer/Footer';
+import { Form } from "./Partners/form3";
 
 
 
@@ -49,7 +50,14 @@ const Programs = () => {
             Our programs
             </h1>
 
-            <div className=" flex gap-2 text-lg text-accent font-flight">
+            <div className=" sm:flex flex-col items-center hidden gap-2 text-lg text-accent font-flight">
+              <a href="#Human Rights Promotion">Human Rights Promotion</a>
+              <a href="#Environmental Justice">Environmental Justice</a> 
+              <a href="#Women and Children Protection">Women and Children Protection</a> 
+              <a href="#Institutional Development">Institutional Development</a>
+            </div>
+
+            <div className=" sm:hidden flex gap-2 text-lg text-accent font-flight">
               <a href="#Human Rights Promotion">Human Rights Promotion</a> |
               <a href="#Environmental Justice">Environmental Justice</a> |
               <a href="#Women and Children Protection">Women and Children Protection</a> |
@@ -67,14 +75,15 @@ const Programs = () => {
 
       <div className=" flex flex-col items-end gap-10  ">
       
-        <h1 className="  bg-primary-foreground py-5 px-10 w-full  text-accent font-fbold  md:text-4xl text-2xl font-semibold text-center">{e.title}</h1>
+        <h1 className=" overflow-hidden  flex items-center justify-center gap-3 sm:flex-col bg-primary-foreground py-5 px-10 w-full  text-accent font-fbold sm:text-2xl  md:text-4xl text-2xl font-semibold text-center">{e.title} <Form description={e.description} img={e.img} /></h1>
+        
       
 
         <Reveal4>
-        <div className=" grid grid-cols-3 gap-10 ">
+        <div className=" grid grid-cols-3 sm:flex sm:flex-col gap-10 ">
           
-            <img className=" col-span-1" src={e.img} alt="" />
-            <p className=" col-span-2 font-fregular  w-[90%]  text-xl">{e.description}</p>
+            <img className=" col-span-1 sm:max-h-[200px] sm:w-full object-contain" src={e.img} alt="" />
+            <p className=" col-span-2 font-fregular sm:text-center sm:self-center  w-[90%]  text-xl">{e.description}</p>
         </div>
         </Reveal4>
         

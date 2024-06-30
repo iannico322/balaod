@@ -13,8 +13,17 @@ import Footer from "@/components/footer/Footer";
 import Main from "./Main/Main";
 import Activities from "./Activities/Activities";
 import Partners from "./Partners/Partners";
+import { useEffect } from "react";
+import usePartners from "./Partners/GetRefresh";
 
 const Page1 = () => {
+
+  const { seed,partners,resetPartners } = usePartners();
+
+  useEffect(()=>{
+    resetPartners()
+  },[])
+ 
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
       <Main />
@@ -54,7 +63,7 @@ const Page1 = () => {
       <hr className=" w-full border border-primary h-2 border-none border-b-2" />
       <Activities />
 
-      <Partners data={JSON.parse(localStorage.getItem("partners")||"")}/>
+      <Partners key={seed} resetPartners={resetPartners} data={partners}/>
 
       <div
         id="Accreditations"

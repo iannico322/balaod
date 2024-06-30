@@ -59,7 +59,7 @@ const Footer = () => {
 
 <div className=" flex sm:flex-col gap-5 py-5 sm:justify-center sm:py-0 cursor-pointer  ">
 
-<FacebookIcon className=' sm:h-5 sm:w-5'/> <Twitter className=' sm:h-5 sm:w-5'/> <Mail className=' sm:h-5 sm:w-5'/>
+<a href="https://www.facebook.com/BALAODMindanaw" target='_blank'><FacebookIcon className=' sm:h-5 sm:w-5'/></a>  <Twitter className=' sm:h-5 sm:w-5'/> <a href="mailto:balaodmindanaw@gmail.com"><Mail className=' sm:h-5 sm:w-5'/></a> 
 </div>
       </div>
       

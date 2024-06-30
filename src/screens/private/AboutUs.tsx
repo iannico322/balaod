@@ -3,8 +3,20 @@ import Reveal3 from "@/components/animation/reveal3"
 import CoverSlide from "@/components/animation/coverSlide"
 import Cover from './../../assets/images/samples/9d146eac-ca05-4249-9eaf-37fdee7ec489.jfif'
 import Footer from "@/components/footer/Footer"
+import { Form } from "./Partners/form2"
+import usePartners from "./Partners/GetRefresh"
+import { useEffect } from "react"
+
 
 const AboutUs = () => {
+
+  const { whatWeDo,resetPartners } = usePartners();
+
+  useEffect(()=>{
+    resetPartners()
+  },[])
+
+
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
     <CoverSlide>
@@ -31,7 +43,7 @@ const AboutUs = () => {
           </div>
     </CoverSlide>
         <div id="what-we-do" className=" relative flex rounded-sm px-20 pl-36 sm:px-5 flex-col  w-full h-[80vh]  items-start  ">
-          <div className=" absolute  animate__animated animate__fadeIn flex flex-col items-center h-full w-[30px] left-0 ml-20 ">
+          <div className=" md:hidden absolute  animate__animated animate__fadeIn flex flex-col items-center h-full w-[30px] left-0 ml-20 ">
             <div className=" h-[61%] w-[20px] bg-primary-foreground">
             </div>
         <div className=" translate-y-[-20px] bg-primary-foreground rounded-full h-[50px] w-[50px]">
@@ -40,9 +52,20 @@ const AboutUs = () => {
           </div>
 
           <Reveal2>
-          <div className=" relative w-full pt-20 min-h-0 max-h-[38vh] overflow-hidden  grid grid-cols-3 gap-2">
-            {JSON.parse(localStorage.getItem('whatWeDo')||"").map((e:any,key:any)=>(
-              <img key={key} src={e.imageURL} className="  justify-self-center col-span-1 object-cover" alt="" />
+            
+          <div className=" relative w-full   pt-20 md:pt-5 min-h-0 max-h-[38vh] overflow-hidden flex justify-center items-center gap-2">
+            {whatWeDo.map((e:any,key:any)=>(
+              <div className=" relative cursor-pointer w-1/3 aspect-video">
+                <div className=" absolute flex items-center justify-center w-full h-full">
+                  <Form id={e._id} resetPartners={resetPartners}/>
+                </div>
+                
+                
+                 
+
+                 <img key={key} src={e.imageURL} className=" w-full h-full col-span-1 object-cover" alt="" />
+              </div>
+             
             ))}
          
 

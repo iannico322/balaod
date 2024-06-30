@@ -4,14 +4,14 @@ import EmblaCarousel from './Partner'
 
 import { Form } from './form'
 
-const Partners = ({data}:any) => {
+const Partners = ({data,key,resetPartners}:any) => {
 
 
     
 
     
   return (
-    <div id="Partners-and-Networks" className=" rounded-sm pt-40  sm:px-0 flex flex-col  w-full py-10  gap-10 sm:gap-5   min-h-0 items-center justify-center  ">
+    <div key={key} id="Partners-and-Networks" className=" rounded-sm pt-40  sm:px-0 flex flex-col  w-full py-10  gap-10 sm:gap-5   min-h-0 items-center justify-center  ">
       
 
 
@@ -22,7 +22,7 @@ const Partners = ({data}:any) => {
 
 </h1>
 
- <Form/>
+ <Form resetPartners={resetPartners} />
  </div>
       </TextSlide>
       
@@ -32,7 +32,7 @@ const Partners = ({data}:any) => {
 <Reveal2>
   <div className=" w-full min-h-0 flex justify-center mt-20 sm:mt-10">
 
-  <EmblaCarousel slides={data}  options={{ loop: true }} />
+  <EmblaCarousel resetPartners={resetPartners}  slides={data}  options={{ loop: true }} />
 
 </div>
 </Reveal2>

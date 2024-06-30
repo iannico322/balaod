@@ -19,7 +19,7 @@ const Activities = () => {
     </TextSlide>
    <Reveal2>
     <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4  gap-4   w-full sm:px-5 px-[4vw] min-h-0  justify-center items-center  ">
-        {JSON.parse(localStorage.getItem('activities')||"").slice(0,4).map((e:any,key:any)=>(
+        {JSON.parse(localStorage.getItem('activities')||"").map((e:any,key:any)=>(
 
                 <ActivitiesCard key={key} e={e} />
 

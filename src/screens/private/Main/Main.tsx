@@ -81,6 +81,8 @@ const Main = () => {
 
 
         </SwiperSlide>
+
+        {HighlightAct?
         <SwiperSlide>
         <CoverSlide>
       <div className=" rounded-b-md relative  flex items-start justify-center h-[100vh] w-full overflow-hidden bg-fixed bg-cover bg-center object-contain " style={{backgroundImage:`url(${HighlightAct.imageURL})`}} >
@@ -130,6 +132,7 @@ const Main = () => {
 
 
         </SwiperSlide>
+        :""}
         
       </Swiper>
   )

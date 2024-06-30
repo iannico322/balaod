@@ -217,6 +217,9 @@ function Private() {
                     " search transition-all duration-150 bg-red-600   rounded-md px-3 py-2 hover:cursor-pointer  "
                   }
                   onClick={() => {
+                    localStorage.removeItem('accessToken')
+                    localStorage.removeItem('user')
+
                     window.scrollTo(0, 0);
                     navigate("/balaod/admin")
                     

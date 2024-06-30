@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Main from "../Main/Main";
 import axios from "./../../../plugin/axios";
 import Swal from 'sweetalert2'
@@ -12,7 +12,12 @@ const SignIn = () => {
   const [data,setData] = useState({
     email:"",password:""
   })
+
+  
   const navigate = useNavigate()
+  useEffect(()=>{
+    localStorage.getItem('accessToken')?navigate('/balaod/editable/'):""
+  },[])
   const [loading,setLoading] = useState(false)
   return (
     <div className=" relative min-h-0 w-full max-w-full  flex flex-col justify-center">

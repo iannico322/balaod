@@ -5,7 +5,11 @@ import './embla.css'
 import axios from './../../../plugin/axios'
 import Swal from 'sweetalert2'
 const EmblaCarousel = (props:any) => {
-  const { slides, options } = props
+
+
+ 
+  
+  const { slides, options,resetPartners } = props
   const [emblaRef]:any = useEmblaCarousel(options, [
     AutoScroll({ playOnInit: true })
   ])
@@ -36,12 +40,14 @@ const EmblaCarousel = (props:any) => {
                   confirmButtonText: "Yes, delete it!"
                 }).then((result) => {
                   if (result.isConfirmed) {
-                    console.log(localStorage.getItem("accessToken"))
+                   
                     axios.delete(`posting/partner/${e._id}`,{
                       headers: {
                         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                       }, 
                     }).then((e)=>{
+                      resetPartners()
+            
                       console.log(e)
                     }).catch((e)=>{
                       console.log(e)

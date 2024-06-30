@@ -9,14 +9,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import axios from "axios";
+import axios from "./../../../plugin/axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-export function Form() {
+export function Form({resetPartners}:any) {
+
+  const [dialogOpen, setDialogOpen] = useState(false); // State to control dialog visibility
 
     const [part, setpart] = useState<any>({
-        type: "accreditation",
+        type: "partner",
         linkToPage: "https://www.facebook.com/BALAODMindanaw",
         photo: null,
     });
@@ -44,6 +46,7 @@ export function Form() {
                 }
             ).then((e:any)=>{
               console.log(e)
+              resetPartners()
               Swal.fire({
                 title: "Added!",
                 text: "The Image has been added, try view on the public url or refresh the page.",
@@ -51,6 +54,7 @@ export function Form() {
                 showConfirmButton: false,
                 timer: 2000
               });
+              setDialogOpen(false);
 
               
   
@@ -64,8 +68,8 @@ export function Form() {
        // Hide the form after submission
     }; 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+      <DialogTrigger asChild onClick={() => setDialogOpen(true)}>
         <Button variant="outline">Add Partners</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -77,6 +81,7 @@ export function Form() {
         </DialogHeader>
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
         <InputWithLabel
+        className=" text-black"
         placeholder="Type"
         value={part.type}
         required={false}
@@ -86,6 +91,7 @@ export function Form() {
         />
 
         <InputWithLabel
+        className=" text-black"
         placeholder="linkToPage"
         type="url"
         value={part.linkToPage}
@@ -94,6 +100,7 @@ export function Form() {
         }}
         />
         <InputWithLabel
+        className=" text-black"
         placeholder="Photo"
         type="file"
         onChange={handleFileChange}

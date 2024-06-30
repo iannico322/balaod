@@ -56,6 +56,8 @@ const WorkUs2 = lazy(() =>
   wait(1300).then(() => import("./screens/private/WorkUs.tsx"))
 );
 
+import ProtectedRoute from './JWT/ProtectedRoute.tsx';
+
 
 
 const router = createBrowserRouter([
@@ -69,7 +71,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/balaod/editable",
-    element:<Private/>,
+    element:
+    
+    <ProtectedRoute>
+    <Private/>
+    </ProtectedRoute>
+    ,
     children: [
       {
         path: "/balaod/editable", 
