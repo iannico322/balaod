@@ -10,7 +10,7 @@ import partner7 from "./../../assets/images/partners/cdo_seal.png";
 
 import Footer from "@/components/footer/Footer";
 
-import Main from "./Main/Main";
+import Main from "./Main/Main3";
 import Activities from "./Activities/Activities";
 import Partners from "./Partners/Partners";
 import { useEffect } from "react";
