@@ -14,7 +14,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import ActivitiesCard from "@/components/card/card3";
 
-export function Form({ resetPartners, id,e,order }: any) {
+export function Form({ resetPartners, id,e,order}: any) {
   const [show,setShow] = useState(false)
 
 
@@ -156,7 +156,7 @@ export function Form({ resetPartners, id,e,order }: any) {
           ))}
           
           <DialogFooter>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Update</Button>
           </DialogFooter>
         </form>
 

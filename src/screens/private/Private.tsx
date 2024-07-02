@@ -53,6 +53,12 @@ function Private() {
   }
   useEffect(()=>{
     localStorage.getItem('accessToken')==null?navigate('/balaod/admin/'):""
+
+    localStorage.getItem('saveEdit')==null?localStorage.setItem('saveEdit',JSON.stringify({
+      title:"",content:"",highlight:false,photo:null,location:'',date:null,showDate:true,showLocation:true
+     })):""
+
+    
     
     GetData()
     GetKudlit()
@@ -231,7 +237,6 @@ function Private() {
                   }
                   onClick={() => {
                     localStorage.removeItem('accessToken')
-                    localStorage.removeItem('kudlit')
                     localStorage.removeItem('user')
 
                     window.scrollTo(0, 0);

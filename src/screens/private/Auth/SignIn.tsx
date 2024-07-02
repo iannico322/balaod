@@ -15,8 +15,18 @@ const SignIn = () => {
 
   
   const navigate = useNavigate()
+  function GetKudlit() {
+  
+    axios.get('posting/kudlit').then((e:any)=>{
+      localStorage.setItem('kudlit',JSON.stringify(e.data.activities))
+      
+      
+    })
+   
+  }
   useEffect(()=>{
     localStorage.getItem('accessToken')?navigate('/balaod/editable/'):""
+    GetKudlit()
   },[])
   const [loading,setLoading] = useState(false)
   return (

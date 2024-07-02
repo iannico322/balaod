@@ -25,6 +25,8 @@ export function Form({ resetPartners,order }: any) {
 
 
   const [kudlits] =  useState(JSON.parse(localStorage.getItem('kudlit')||""))
+
+  
   const filterData = (data:any, query:any) => {
     if (!query) {
       return data;
