@@ -25,6 +25,18 @@ function Private() {
     }
   };
 
+  function GetKudlit() {
+  
+    axios.get('posting/kudlit').then((e:any)=>{
+      console.log(e.data.activities)
+      localStorage.setItem('kudlit',JSON.stringify(e.data.activities))
+      
+      
+    })
+   
+  }
+ 
+
 
   function GetData(){
     try {
@@ -43,6 +55,7 @@ function Private() {
     localStorage.getItem('accessToken')==null?navigate('/balaod/admin/'):""
     
     GetData()
+    GetKudlit()
   },[])
 
   useEffect(() => {
@@ -218,6 +231,7 @@ function Private() {
                   }
                   onClick={() => {
                     localStorage.removeItem('accessToken')
+                    localStorage.removeItem('kudlit')
                     localStorage.removeItem('user')
 
                     window.scrollTo(0, 0);

@@ -8,10 +8,10 @@ import Cover from './../../../assets/images/samples/42fb9365-3627-4ac0-8127-4305
 import Reveal from '@/components/animation/reveal';
 import { useNavigate } from 'react-router-dom';
 
-const Main = () => {
+const Main = ({data}:any) => {
 
   
-  const HighlightAct = JSON.parse(localStorage.getItem('activities')||"")[0]
+  const HighlightAct = data.find((item:any) => item.order === 1);
 
   const navigate = useNavigate()
   return (

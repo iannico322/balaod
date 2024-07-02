@@ -68,7 +68,7 @@ const Kudlit = () => {
 
   function GetKudlit() {
     setLoading(true)
-    axios.get('posting/kudlit?page=1').then((e:any)=>{
+    axios.get('posting/kudlit').then((e:any)=>{
       console.log(e.data.activities)
       setFilterData(e.data.activities)
       setKudlits(e.data.activities)

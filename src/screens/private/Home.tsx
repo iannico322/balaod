@@ -18,7 +18,7 @@ import usePartners from "./Partners/GetRefresh";
 
 const Page1 = () => {
 
-  const { seed,partners,resetPartners } = usePartners();
+  const { seed,partners,activities,resetPartners } = usePartners();
 
   useEffect(()=>{
     resetPartners()
@@ -26,7 +26,7 @@ const Page1 = () => {
  
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
-      <Main />
+      <Main key={seed+2}  data={activities} />
 
       <div
         id="more"
@@ -61,7 +61,7 @@ const Page1 = () => {
       {/* Activities part */}
 
       <hr className=" w-full border border-primary h-2 border-none border-b-2" />
-      <Activities />
+      <Activities key={seed+1} resetPartners={resetPartners} data={activities} />
 
       <Partners key={seed} resetPartners={resetPartners} data={partners}/>
 

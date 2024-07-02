@@ -1,18 +1,22 @@
 // import { Button } from "../ui/button"
-
+// import { useNavigate } from 'react-router-dom'
 import Reveal from '../animation/reveal'
 import Logo from './../../assets/images/logo/BalaodWhiteOutFull@3x.png'
-import { Form } from '@/screens/private/Activities/form2'
-
-function ActivitiesCard({className,e,order,resetPartners,id}:any) {
-
+function ActivitiesCard({className,e}:any) {
+  // let navigate = useNavigate()
   return (
     <Reveal>
-    <div   className={"  cursor-pointer rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary aspect-[7/10] overflow-hidden "+ className}>
+    <div 
+    onClick={()=>{
+      window.scrollTo(0, 0);
+      window.open(`/balaod/blog/${e._id}`, '_blank');
+      localStorage.setItem("selected",JSON.stringify(e))
 
-    <div className=' z-30 absolute'>
-     <Form e={e} order={order} id={id} resetPartners={resetPartners}/> 
-    </div>
+    }} 
+    
+    className={" cursor-pointer rounded-sm  border  justify-center  border-card flex flex-col items-center relative bg-primary aspect-[7/8] overflow-hidden "+ className}>
+
+   
     
       <div className="  z-10 absolute h-full w-full bg-gradient-to-b from-[#fd90019d] from-5% via-[#5d193e00] via-92% to-[#5d193ee5] to-2% ">
       <img
@@ -25,7 +29,7 @@ function ActivitiesCard({className,e,order,resetPartners,id}:any) {
         <img className="  w-full h-full bg-white object-cover rounded-md  "  src={e.imageURL}/>
         
         <div className=" w-full z-20 absolute bottom-0    mt-2 flex flex-col gap-4">
-            <h1 className=' text-accent font-fbold  px-5 w-[400px]'>
+            <h1 className=' text-accent font-fbold  px-5 w-[200px]'>
               <span className=' py-2  px-2 bg-primary-foreground'>
                 Kudlit
               </span>
