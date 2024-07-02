@@ -1,9 +1,9 @@
 
 import Footer from '@/components/footer/Footer'
-import Tiptap from './Tiptap'
-import { Link, useParams } from 'react-router-dom'
+// import Tiptap from './Tiptap'
+import { Link} from 'react-router-dom'
 import { LocateIcon } from 'lucide-react'
-import axios from '../../../plugin/axios'
+// import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
 import { Switch } from '@/components/ui/switch'
 import TiptapEdit from './TiptapEdit'
@@ -13,17 +13,17 @@ import { Button } from '@/components/ui/button'
 
 
 const CreatActivity = () => {
- const [_loading,setLoading] = useState(false)
+ const [_loading,_setLoading] = useState(false)
 
  const [data,setData] = useState<any>(JSON.parse(localStorage.getItem('saveEdit')||""))
 
 
-  function formatDate(dateString:any) {
-    const date = new Date(dateString);
-    const options:any = { year: 'numeric', month: 'long', day: '2-digit' };
+  // function formatDate(dateString:any) {
+  //   const date = new Date(dateString);
+  //   const options:any = { year: 'numeric', month: 'long', day: '2-digit' };
   
-    return new Intl.DateTimeFormat('en-US', options).format(date);
-  }
+  //   return new Intl.DateTimeFormat('en-US', options).format(date);
+  // }
 
   const [preview, setPreview] = useState<string | null>(null);
 
