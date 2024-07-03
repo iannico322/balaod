@@ -185,7 +185,9 @@ const Kudlit = () => {
         
         <div className=" absolute z-40 right-0 flex gap-5 p-6">
         <Edit2Icon className=" cursor-pointer text-green-600" onClick={()=>{
-
+            window.scrollTo(0, 0);
+            navigate(`/balaod/editable/edit-blog/${e._id}`)
+            localStorage.setItem("saveEdit",JSON.stringify(e))
         }}/>
           <Trash2Icon className=" cursor-pointer text-red-600" onClick={
             ()=>{

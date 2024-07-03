@@ -61,8 +61,8 @@ const Blog = () => {
         Kudlit
     </Link> 
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
-        <p>{data.date?formatDate(data.date):""}</p>
-        {data.location?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
+        <p>{data.showDate?formatDate(data.date):""}</p>
+        {data.showLocation?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
     </div>
 
     <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 mb-36">

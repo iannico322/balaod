@@ -54,15 +54,15 @@ const Blog = () => {
 <img src={data.imageURL} className=' mt-5 text-xl mb-5 object-cover h-[60vh]' alt="" />
 
         <div className=" mt-5 px-[10vw] md:px-5">
-        <Link to="/balaod/kudlit" className=" w-[90px] font-fmedium flex items-center justify-between px-2 py-2 bg-background text-black font-bold border border-gray-300 hover:bg-[#e4e4e4]">
+        <Link to="/balaod/editable/kudlit" className=" w-[90px] font-fmedium flex items-center justify-between px-2 py-2 bg-background text-black font-bold border border-gray-300 hover:bg-[#e4e4e4]">
         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
         Kudlit
     </Link> 
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
-        <p>{data.date?formatDate(data.date):""}</p>
-        {data.location?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
+    <p>{data.showDate?formatDate(data.date):""}</p>
+    {data.showLocation?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
     </div>
 
     <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 mb-36">

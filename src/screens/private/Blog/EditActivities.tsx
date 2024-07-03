@@ -1,25 +1,38 @@
 
 import Footer from '@/components/footer/Footer'
 // import Tiptap from './Tiptap'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate,useParams} from 'react-router-dom'
 import { LocateIcon } from 'lucide-react'
 // import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
 import { Switch } from '@/components/ui/switch'
 import TiptapEdit from './TiptapEdit'
 import { Button } from '@/components/ui/button'
-import axios from './../../../plugin/axios'
+import axios from '../../../plugin/axios'
 import Swal from 'sweetalert2'
 import imageCompression from 'browser-image-compression';
 
 
 
 
-const CreatActivity = () => {
+const EditActivity = () => {
+  const  id  = useParams();
   const navigate = useNavigate()
  const [_loading,_setLoading] = useState(false)
 
+ 
+
  const [data,setData] = useState<any>(JSON.parse(localStorage.getItem('saveEdit')||""))
+
+ async function GetBlog()  {
+
+  await axios.get(`posting/${id.uid}`).then((e:any)=>{
+
+    setData(e.data.activity)
+    
+
+  })
+}
 
 
   // function formatDate(dateString:any) {
@@ -43,6 +56,12 @@ const CreatActivity = () => {
     }
   };
 
+  useEffect(()=>{
+    GetBlog() 
+
+    setPreview(data.imageURL);
+
+  },[])
 
   const convertToWebP = async (file: File): Promise<File> => {
     const options = {
@@ -53,17 +72,19 @@ const CreatActivity = () => {
     };
     return await imageCompression(file, options);
   };
+  
 
  
   useEffect(()=>{
     localStorage.setItem('saveEdit',JSON.stringify(data))
+    console.log(data)
 
   
   },[data])
 
   function checkBlankContent(data:any) {
     // Check if the 'content' field is present and is blank
-    return  !data.title || !data.content || !(data.photo.name?true:false);
+    return  !data.title || !data.content ;
   }
    
     
@@ -158,21 +179,14 @@ const CreatActivity = () => {
       console.log(checkBlankContent(data))
 
       if (!checkBlankContent(data)) {
-        const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("content", data.content);
-      formData.append("photo", data.photo);
-      formData.append("location", data.location);
-      formData.append("date", data.date);
-      formData.append("showDate", data.showDate);
-      formData.append("showLocation", data.showLocation);
+       
 
 
 
 
       try {
         await axios
-          .post(`posting/activity/addActivity/`, formData, {
+          .put(`posting/activity/${id.uid}`, data, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
               "Content-Type": "multipart/form-data", // Important for file uploads
@@ -217,7 +231,7 @@ const CreatActivity = () => {
    
       
 
-    }} >Publish Blog</Button>
+    }} >Update Blog</Button>
    
 {/*         
         <div>
@@ -258,4 +272,4 @@ const CreatActivity = () => {
   )
 }
 
-export default CreatActivity
+export default EditActivity

@@ -252,7 +252,7 @@ function Private() {
                     localStorage.removeItem('user')
 
                     window.scrollTo(0, 0);
-                    navigate("/balaod/editable/admin")
+                    navigate("/balaod/admin")
                     
                   }}
                 >

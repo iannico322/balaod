@@ -58,6 +58,9 @@ const WorkUs2 = lazy(() =>
 const CreatActivity = lazy(() =>
   wait(1300).then(() => import("./screens/private/Blog/CreatActivities.tsx"))
 );
+const EditActivity = lazy(() =>
+  wait(1300).then(() => import("./screens/private/Blog/EditActivities.tsx"))
+);
 
 
 import ProtectedRoute from './JWT/ProtectedRoute.tsx';
@@ -133,6 +136,14 @@ const router = createBrowserRouter([
         element: <>
         <Suspense fallback={<Loader />}>
           <Blog2/>
+        </Suspense>
+      </>,
+      },
+      {
+        path: "/balaod/editable/edit-blog/:uid/",
+        element: <>
+        <Suspense fallback={<Loader />}>
+          <EditActivity/>
         </Suspense>
       </>,
       },
