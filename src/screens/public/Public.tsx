@@ -252,15 +252,24 @@ function Public() {
                     </Link>
                     <div className=" hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md  ">
                       <Link
-                        to="/balaod/about#who-we-are"
-                        onClick={(e) => handleClick(e, 'who-we-are')}
+                        to="/balaod/about"
+                        onClick={(e) => {
+                          navigate("/balaod/about#who-we-are")
+                          window.scrollTo(0, 0);
+                          handleClick(e, 'who-we-are')
+                        
+                          
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Who We Are
                       </Link>
                       <Link
-                        to="/balaod/about#what-we-do"
-                        onClick={(e) => handleClick(e, 'what-we-do')}
+                        to="/balaod/about"
+                        onClick={(e) => {
+                        navigate("/balaod/about#what-we-do")
+                        handleClick(e, 'what-we-do')
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         What We Do
@@ -277,29 +286,49 @@ function Public() {
                     </Link>
                     <div className="hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md">
                       <Link
-                        to="/balaod/programs#Human Rights Promotion"
-                        onClick={(e) => handleClick(e, 'Human Rights Promotion')}
+                        to="/balaod/programs"
+                        onClick={(e) => {
+                         navigate("/balaod/programs#Human Rights Promotion")
+                         handleClick(e, 'Human Rights Promotion')
+                       
+                         
+                       }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Human Rights Promotion
                       </Link>
                       <Link
-                        to="/balaod/programs#Environmental Justice"
-                        onClick={(e) => handleClick(e, 'Environmental Justice')}
+                        to="/balaod/programs"
+                        onClick={(e) => {
+                          navigate("/balaod/programs#Environmental Justice")
+                          handleClick(e, 'Environmental Justice')
+                        
+                          
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Environmental Justice
                       </Link>
                       <Link
-                        to="/balaod/programs#Women and Children Protection"
-                        onClick={(e) => handleClick(e, 'Women and Children Protection')}
+                        to="/balaod/programs"
+                        onClick={(e) => {
+                         navigate("/balaod/programs#Women and Children Protection")
+                         handleClick(e, 'Women and Children Protection')
+                       
+                         
+                       }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Women and Children Protection
                       </Link>
                       <Link
-                        to="/balaod/programs#Institutional Development"
-                        onClick={(e) => handleClick(e, 'Institutional Development')}
+                        to="/balaod/programs"
+                        onClick={(e) => {
+                          navigate("/balaod/programs#Institutional Development")
+                          handleClick(e, 'Institutional Development')
+                        
+                          
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Institutional Development

@@ -8,6 +8,7 @@ import usePartners from "./Partners/GetRefresh"
 import { useEffect } from "react"
 
 
+
 const AboutUs = () => {
 
   const { whatWeDo,resetPartners } = usePartners();
