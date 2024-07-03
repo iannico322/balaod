@@ -10,6 +10,7 @@ import TiptapEdit from './TiptapEdit'
 import { Button } from '@/components/ui/button'
 import axios from './../../../plugin/axios'
 import Swal from 'sweetalert2'
+import imageCompression from 'browser-image-compression';
 
 
 
@@ -30,15 +31,27 @@ const CreatActivity = () => {
 
   const [preview, setPreview] = useState<string | null>(null);
 
-  const handleFileChange = (event: any) => {
+  const handleFileChange = async (event: any) => {
     const file = event.target.files[0];
-    setData({ ...data, photo: file }); // Correctly store the file
+    
 
-    // Generate a preview URL for the selected image file
     if (file) {
       const previewURL = URL.createObjectURL(file);
-      setPreview(previewURL);
+      const webpFile = await convertToWebP(file);
+      setPreview(previewURL );
+      setData({ ...data, photo: webpFile }); // Update state with the WebP file
     }
+  };
+
+
+  const convertToWebP = async (file: File): Promise<File> => {
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 2048,
+      useWebWorker: true,
+      fileType: 'image/webp',
+    };
+    return await imageCompression(file, options);
   };
 
  

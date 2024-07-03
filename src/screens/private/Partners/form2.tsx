@@ -12,6 +12,7 @@ import {
 import axios from "../../../plugin/axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import imageCompression from 'browser-image-compression';
 
 export function Form({ resetPartners, id }: any) {
   const [part, setpart] = useState<any>({
@@ -22,7 +23,10 @@ export function Form({ resetPartners, id }: any) {
   const [preview, setPreview] = useState<string | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false); // State to control dialog visibility
 
-  const handleFileChange = (event: any) => {
+  
+
+
+  const handleFileChange = async (event: any) => {
     const file = event.target.files[0];
     setpart({ ...part, photo: file }); // Correctly store the file
 
@@ -30,7 +34,21 @@ export function Form({ resetPartners, id }: any) {
     if (file) {
       const previewURL = URL.createObjectURL(file);
       setPreview(previewURL);
+      const webpFile = await convertToWebP(file);
+      setpart({ ...part, photo: webpFile });
     }
+  };
+
+  
+
+  const convertToWebP = async (file: File): Promise<File> => {
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 2048,
+      useWebWorker: true,
+      fileType: 'image/webp',
+    };
+    return await imageCompression(file, options);
   };
 
   const handleSubmit = async (e: any) => {
