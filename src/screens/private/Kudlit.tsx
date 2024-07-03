@@ -4,7 +4,7 @@
 import CoverSlide from "@/components/animation/coverSlide"
 import Footer from '@/components/footer/Footer'
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import DOMPurify from 'dompurify';
 import axios from "../../plugin/axios"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -139,8 +139,13 @@ const Kudlit = () => {
         </div>
           <div className="  z-20 flex flex-col items-center justify-center gap-5  ">
         
-            <h1 className=" mt-20  text-accent rounded-full  font-fbold  md:text-4xl text-4xl font-semibold">
+            <h1 className=" flex items-center gap-3 mt-20  text-accent rounded-full  font-fbold  md:text-4xl text-4xl font-semibold">
             Kudlit
+            <Link 
+      className=' text-sm px-4 py-2 rounded-md border border-input bg-primary hover:bg-accent hover:text-accent-foreground'
+      to="/balaod/editable/create-blog"
+
+      >Create Activity</Link>
             </h1>
 
             

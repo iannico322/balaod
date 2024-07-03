@@ -5,7 +5,7 @@ import ActivitiesCard from '@/components/card/card'
 import { useNavigate } from 'react-router-dom'
 
 
-const Activities = ({resetPartners}:any) => {
+const Activities = () => {
 
 
   const maxOrder = 4;
@@ -18,7 +18,6 @@ const Activities = ({resetPartners}:any) => {
     if (item) {
       elements.push(
         <ActivitiesCard
-          resetPartners={resetPartners}
           order={item.order - 1}
           key={item._id }
           e={item}

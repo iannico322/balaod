@@ -178,7 +178,7 @@ const CreatActivity = () => {
              })
 
              localStorage.setItem('saveEdit',JSON.stringify({
-              title:"",content:"",highlight:false,photo:null,location:'',date:null,showDate:true,showLocation:true
+              title:"",content:"",highlight:false,photo:{},location:'',date:null,showDate:true,showLocation:true
              }))
 
              navigate('/balaod/editable/kudlit')
@@ -189,8 +189,8 @@ const CreatActivity = () => {
       }
       }else{
       Swal.fire({
-        title: "Empty Field!",
-        text: "Some Fields are Empty pls fill it up",
+        title: "Empty Field (Photo,title,content)!",
+        text: "Some Fields are Empty please fill it up",
         icon: "error",
         showConfirmButton: false,
         timer: 2000,

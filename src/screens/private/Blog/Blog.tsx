@@ -51,7 +51,7 @@ const Blog = () => {
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
 
-<img src={data.imageURL} className=' mt-5 text-xl mb-5 object-cover h-[50vh]' alt="" />
+<img src={data.imageURL} className=' mt-5 text-xl mb-5 object-cover h-[60vh]' alt="" />
 
         <div className=" mt-5 px-[10vw] md:px-5">
         <Link to="/balaod/kudlit" className=" w-[90px] font-fmedium flex items-center justify-between px-2 py-2 bg-background text-black font-bold border border-gray-300 hover:bg-[#e4e4e4]">
