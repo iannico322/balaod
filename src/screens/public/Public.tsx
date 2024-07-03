@@ -25,11 +25,24 @@ function Public() {
     }
   };
 
+  const [showMenu, setShowMenu] = useState(false);
+  const handleScroll = () => {
+    // Logic to hide the menu when scrolling
+    setShowMenu(false);
+  };
+
+  // Effect to add scroll event listener when component mounts
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   function GetData(){
     try {
       axios.get('posting/').then((e:any)=>{
-      console.log(e.data)
       localStorage.setItem('activities',JSON.stringify(e.data.activities))
       localStorage.setItem('partners',JSON.stringify(e.data.partners))
       localStorage.setItem('whatWeDo',JSON.stringify(e.data.whatWeDo))
@@ -75,7 +88,7 @@ function Public() {
             />
           </Link>
           <nav className=" bg-accent h-[60px] text-accent-foreground flex  uppercase items-center justify-center">
-            <div className=" flex h-full items-center font-regular justify-center w-full md:hidden">
+            <div className=" flex h-full items-center font-regular justify-center w-full lg:hidden">
               <NavLink onClick={() => {
                 window.scrollTo(0, 0);
                 navigate("/balaod/home")
@@ -224,8 +237,84 @@ function Public() {
                 </div>
               </span>
             </div>
-            <div className=" hidden md:flex p-3">
-              <MenuIcon className="  h-7 w-7" />
+            <div className="hidden lg:flex  w-full h-full">
+              <div className="relative flex items-center px-4 ">
+                <MenuIcon className="h-7 w-7 cursor-pointer " onClick={() => setShowMenu(!showMenu)} />
+                <div className={`absolute ${showMenu ? 'flex' : 'hidden'} top-full border-b-2 border-primary-foreground right-0 bg-white/60 text-black shadow-lg w-[100vw] flex-col text-right sm:text-center`}>
+                  <Link to="/balaod/home" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                    HOME
+                  </Link>
+                  <div className=" relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
+                    
+                    <Link to="/balaod/about" className="   flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
+                      ABOUT US
+                      <ChevronDown className=" group-hover:rotate-180 inline w-4 h-4 " />
+                    </Link>
+                    <div className=" hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md  ">
+                      <Link
+                        to="/balaod/about#who-we-are"
+                        onClick={(e) => handleClick(e, 'who-we-are')}
+                        className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
+                      >
+                        Who We Are
+                      </Link>
+                      <Link
+                        to="/balaod/about#what-we-do"
+                        onClick={(e) => handleClick(e, 'what-we-do')}
+                        className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
+                      >
+                        What We Do
+                      </Link>
+                    </div>
+                  </div>
+
+
+
+                  <div className="relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
+                    <Link to="/balaod/programs" className="flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
+                      OUR PROGRAMS
+                      <ChevronDown className="group-hover:rotate-180 inline w-4 h-4" />
+                    </Link>
+                    <div className="hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md">
+                      <Link
+                        to="/balaod/programs#Human Rights Promotion"
+                        onClick={(e) => handleClick(e, 'Human Rights Promotion')}
+                        className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
+                      >
+                        Human Rights Promotion
+                      </Link>
+                      <Link
+                        to="/balaod/programs#Environmental Justice"
+                        onClick={(e) => handleClick(e, 'Environmental Justice')}
+                        className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
+                      >
+                        Environmental Justice
+                      </Link>
+                      <Link
+                        to="/balaod/programs#Women and Children Protection"
+                        onClick={(e) => handleClick(e, 'Women and Children Protection')}
+                        className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
+                      >
+                        Women and Children Protection
+                      </Link>
+                      <Link
+                        to="/balaod/programs#Institutional Development"
+                        onClick={(e) => handleClick(e, 'Institutional Development')}
+                        className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
+                      >
+                        Institutional Development
+                      </Link>
+                    </div>
+                  </div>
+                  <Link to="/balaod/kudlit" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                    Kudlit
+                  </Link>
+                  <Link to="/balaod/work-with-us" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                    Work With Us
+                  </Link>
+                  
+                </div>
+              </div>
             </div>
           </nav>
         </nav>
