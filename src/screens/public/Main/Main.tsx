@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const Main = () => {
 
   
-  const HighlightAct = JSON.parse(localStorage.getItem('activities')||"")[0]
+  const HighlightAct = JSON.parse(localStorage.getItem('activities')||"").find((item:any) => item.order === 1);
 
   const navigate = useNavigate()
   return (

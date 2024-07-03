@@ -3,18 +3,25 @@
 import Reveal from '../animation/reveal'
 import Logo from './../../assets/images/logo/BalaodWhiteOutFull@3x.png'
 import { Form } from '@/screens/private/Activities/form2'
-
+import { useNavigate } from 'react-router-dom'
 function ActivitiesCard({className,e,order,resetPartners,id}:any) {
-
+  let navigate = useNavigate()
   return (
     <Reveal>
-    <div   className={"  cursor-pointer rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary aspect-[7/10] overflow-hidden "+ className}>
+    <div   className={"   rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary aspect-[7/10] overflow-hidden "+ className}>
 
     <div className=' z-30 absolute'>
      <Form  e={e} order={order} id={id} resetPartners={resetPartners}/> 
     </div>
     
-      <div className="  z-10 absolute h-full w-full bg-gradient-to-b from-[#fd90019d] from-5% via-[#5d193e00] via-92% to-[#5d193ee5] to-2% ">
+      <div
+      onClick={()=>{
+        window.scrollTo(0, 0);
+        navigate(`/balaod/editable/blog/${e._id}`)
+        localStorage.setItem("selected",JSON.stringify(e))
+  
+      }} 
+      className=" cursor-pointer  z-10 absolute h-full w-full bg-gradient-to-b from-[#fd90019d] from-5% via-[#5d193e00] via-92% to-[#5d193ee5] to-2% ">
       <img
               src={Logo}
               className=" m-5  logo h-7 right-0 absolute object-contain "

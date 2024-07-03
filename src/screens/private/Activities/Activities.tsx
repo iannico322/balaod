@@ -2,7 +2,7 @@ import Reveal from '@/components/animation/reveal'
 import Reveal2 from '@/components/animation/reveal2'
 import TextSlide from '@/components/animation/textSlide'
 import ActivitiesCard from '@/components/card/card2'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Form } from './form3'
 
 const Activities = ({resetPartners,data}:any) => {
@@ -40,8 +40,13 @@ const Activities = ({resetPartners,data}:any) => {
     <div className="  mt-36 relative  flex  gap-10 flex-col  items-center min-h-0 w-full ">
     <TextSlide>
       
-      <h1 className=" text-4xl font-fbold text-primary "><span>Activities</span></h1>
-      
+      <h1 className=" flex items-center gap-4 text-4xl font-fbold text-primary "><span>Activities</span> 
+      <Link 
+      className=' text-sm px-4 py-2 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground'
+      to="/balaod/editable/create-blog"
+
+      >Create Activity</Link></h1>
+
     
       
     </TextSlide>

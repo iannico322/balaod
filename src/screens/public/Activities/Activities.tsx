@@ -4,7 +4,35 @@ import TextSlide from '@/components/animation/textSlide'
 import ActivitiesCard from '@/components/card/card'
 import { useNavigate } from 'react-router-dom'
 
-const Activities = () => {
+
+const Activities = ({resetPartners}:any) => {
+
+
+  const maxOrder = 4;
+  const sortedData = JSON.parse(localStorage.getItem('activities')||"").sort((a:any, b:any) => a.order - b.order);
+  
+  const elements = [];
+  
+  for (let i = 1; i <= maxOrder; i++) {
+    const item = sortedData.find((e:any) => e.order === i);
+    if (item) {
+      elements.push(
+        <ActivitiesCard
+          resetPartners={resetPartners}
+          order={item.order - 1}
+          key={item._id }
+          e={item}
+          id={item._id }
+        />
+      );
+    } else {
+      elements.push(
+        <div key={`placeholder-${i}`} className=' cursor-pointer rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary aspect-[7/10] overflow-hidden' >
+        
+        </div>
+      );
+    }
+  }
 
 
   const navigate = useNavigate()
@@ -12,20 +40,15 @@ const Activities = () => {
     <div className="  mt-36 relative  flex  gap-10 flex-col  items-center min-h-0 w-full ">
     <TextSlide>
       
-      <h1 className=" text-4xl font-fbold text-primary "><span>Activities</span></h1>
-      
+      <h1 className=" flex items-center gap-4 text-4xl font-fbold text-primary "><span>Activities</span> 
+      </h1>
+
     
       
     </TextSlide>
    <Reveal2>
-    <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4  gap-4   w-full sm:px-5 px-[4vw] min-h-0  justify-center items-center  ">
-        {JSON.parse(localStorage.getItem('activities')||"").slice(0,4).map((e:any,key:any)=>(
-
-                <ActivitiesCard key={key} e={e} />
-
-        ))}
-      
-      
+   <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-4 gap-4 w-full sm:px-5 px-[4vw] min-h-0 justify-center items-center">
+      {elements}
     </div>
 
        

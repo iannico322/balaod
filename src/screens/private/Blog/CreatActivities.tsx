@@ -1,18 +1,21 @@
 
 import Footer from '@/components/footer/Footer'
 // import Tiptap from './Tiptap'
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { LocateIcon } from 'lucide-react'
 // import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
 import { Switch } from '@/components/ui/switch'
 import TiptapEdit from './TiptapEdit'
 import { Button } from '@/components/ui/button'
+import axios from './../../../plugin/axios'
+import Swal from 'sweetalert2'
 
 
 
 
 const CreatActivity = () => {
+  const navigate = useNavigate()
  const [_loading,_setLoading] = useState(false)
 
  const [data,setData] = useState<any>(JSON.parse(localStorage.getItem('saveEdit')||""))
@@ -40,13 +43,17 @@ const CreatActivity = () => {
 
  
   useEffect(()=>{
-    
-    console.log(data)
     localStorage.setItem('saveEdit',JSON.stringify(data))
 
   
   },[data])
 
+  function checkBlankContent(data:any) {
+    // Check if the 'content' field is present and is blank
+    return  !data.title || !data.content || !(data.photo.name?true:false);
+  }
+   
+    
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
    
@@ -126,14 +133,78 @@ const CreatActivity = () => {
     
 
     <div>
-      <input type="text" value={data.title} onChange={(e:any)=>{
+      <textarea  value={data.title} onChange={(e:any)=>{
         setData({...data,title:e.target.value})
       }} required className=" w-full outline-none text-primary text-3xl font-fbold" placeholder='Title e.g Community Engagement: Local Citizens Participate in Process ' />
     </div>
 
  
     <TiptapEdit data={data.content} setData={setData} />
-    <Button className=' font-fbold' >Publish Blog</Button>
+    <Button className=' font-fbold' onClick={async(e:any)=>{
+      e.preventDefault()
+      console.log(checkBlankContent(data))
+
+      if (!checkBlankContent(data)) {
+        const formData = new FormData();
+      formData.append("title", data.title);
+      formData.append("content", data.content);
+      formData.append("photo", data.photo);
+      formData.append("location", data.location);
+      formData.append("date", data.date);
+      formData.append("showDate", data.showDate);
+      formData.append("showLocation", data.showLocation);
+
+
+
+
+      try {
+        await axios
+          .post(`posting/activity/addActivity/`, formData, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              "Content-Type": "multipart/form-data", // Important for file uploads
+            },
+          })
+          .then((_e: any) => {
+            Swal.fire({
+              title: "Added!",
+              text: "The new Activity has been Added",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+            setData({
+              title:"",content:"",highlight:false,photo:null,location:'',date:null,showDate:true,showLocation:true
+             })
+
+             localStorage.setItem('saveEdit',JSON.stringify({
+              title:"",content:"",highlight:false,photo:null,location:'',date:null,showDate:true,showLocation:true
+             }))
+
+             navigate('/balaod/editable/kudlit')
+          });
+      } catch (error) {
+        console.error("Error uploading partner data:", error);
+        // Handle errors appropriately (e.g., show error message to user)
+      }
+      }else{
+      Swal.fire({
+        title: "Empty Field!",
+        text: "Some Fields are Empty pls fill it up",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      }
+
+
+
+
+
+   
+      
+
+    }} >Publish Blog</Button>
    
 {/*         
         <div>

@@ -8,7 +8,6 @@ import FontSize from './FontSize';
 import './styles.css';
 import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Eraser, XSquare } from 'lucide-react';
 
-
 const extensions = [
   StarterKit,
   TextStyle,
@@ -31,7 +30,7 @@ const TiptapEdit = ({ data, setData }:any) => {
     extensions,
     content,
     onUpdate({ editor }) {
-      const htmlContent = editor.getHTML().replace(/ /g, '&nbsp;');
+      const htmlContent = editor.getHTML();
       setData((prevData:any) => ({ ...prevData, content: htmlContent }));
     },
   });
@@ -44,6 +43,10 @@ const TiptapEdit = ({ data, setData }:any) => {
     setHeadingMenuOpen(!headingMenuOpen);
   };
 
+  // const renderContent = (htmlContent:any) => {
+  //   return { __html: htmlContent.replace(/<p><\/p>/g, '<p><br></p>').replace(/\n/g, '<br>') };
+  // };
+
   return (
     <div className="">
       <EditorContent editor={editor} className="tiptap w-full border border-border" />
@@ -53,7 +56,7 @@ const TiptapEdit = ({ data, setData }:any) => {
         <button onClick={() => editor.chain().focus().toggleItalic().run()} className={`btn ${editor.isActive('italic') ? 'font-bold' : ''}`}>I</button>
         <button onClick={() => editor.chain().focus().unsetAllMarks().run()} className="btn"><Eraser /></button>
         <button onClick={() => editor.chain().focus().clearNodes().run()} className="btn"><XSquare /></button>
-        <div className=' flex items-center gap-4'>
+        <div className='flex items-center gap-4'>
           <div onClick={() => editor.chain().focus().setColor('#ff8c00').run()} className="btn w-5 h-5 rounded-md cursor-pointer bg-[#ff8c00]"></div>
           <div onClick={() => editor.chain().focus().setColor('#171719').run()} className="btn w-5 h-5 rounded-md cursor-pointer bg-[#171719]"></div>
           <div onClick={() => editor.chain().focus().setColor('#5d193e').run()} className="btn w-5 h-5 rounded-md cursor-pointer bg-[#5d193e]"></div>
@@ -80,6 +83,8 @@ const TiptapEdit = ({ data, setData }:any) => {
           )}
         </div>
       </BubbleMenu>
+
+      {/* <div className="tiptap w-full border border-border" dangerouslySetInnerHTML={renderContent(content)} /> */}
     </div>
   );
 };

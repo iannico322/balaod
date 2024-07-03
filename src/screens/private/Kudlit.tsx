@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom"
 import DOMPurify from 'dompurify';
 import axios from "../../plugin/axios"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Edit2Icon, Trash2Icon } from "lucide-react";
+import Swal from "sweetalert2";
 
 
 const Kudlit = () => {
@@ -174,23 +176,69 @@ const Kudlit = () => {
       <CoverSlide>
 
       
-      <div onClick={()=>{
-        window.scrollTo(0, 0);
-        navigate(`/balaod/blog/${e._id}`)
-        localStorage.setItem("selected",JSON.stringify(e))
+      <div className=" relative max-w-full flex w-full min-h-0  " key={key} >
+        
+        <div className=" absolute z-40 right-0 flex gap-5 p-6">
+        <Edit2Icon className=" cursor-pointer text-green-600" onClick={()=>{
 
-      }} className=" relative max-w-full flex w-full min-h-0  " key={key} >
-        <div className=" relative w-[20vw] md:hidden " >
+        }}/>
+          <Trash2Icon className=" cursor-pointer text-red-600" onClick={
+            ()=>{
+              Swal.fire({
+                imageUrl:e.imageURL,
+                imageWidth: 400,
+                imageAlt: "Custom image",
+                title: "This action will delete this activity, are you sure?",
+                text: "You won't be able to revert this!",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                 
+                  axios.delete(`posting/activity/${e._id}`,{
+                    headers: {
+                      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                    }, 
+                  }).then((e)=>{
+                    GetKudlit()
+          
+                    console.log(e)
+                  }).catch((e)=>{
+                    console.log(e)
+                  })
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: "The Image has been deleted.",
+                    icon: "success"
+                  });
+                }
+              });
+            }
+          }/>
+        
+        </div>
+        
+        <div className=" relative w-[20vw] md:hidden  "  >
+
+          
         <div className="  z-10 absolute h-full w-full bg-gradient-to-b from-[#fd900178] from-[2%] via-[#5d193ede] via-[90%] to-[#5d193ede] to-[90%] "></div>
 
           <img src={e.imageURL} className="  h-full relative aspect-square object-cover" alt="" />
         </div>
         
-        <div className="w-full border flex flex-col gap-4 border-border p-4 bg-background cursor-pointer hover:bg-[#e4e4e4] pr-10 relative">
+        <div className="w-full border flex flex-col gap-4 border-border p-4 bg-background cursor-pointer hover:bg-[#e4e4e4] pr-10 relative" onClick={()=>{
+        window.scrollTo(0, 0);
+        navigate(`/balaod/editable/blog/${e._id}`)
+        localStorage.setItem("selected",JSON.stringify(e))
+
+      }}>
 
         <div className=" bg-primary-foreground w-[80px] h-[40px] text-lg text-accent  flex items-center justify-center font-fmedium">
           Kudlit
         </div>
+        
 
       <div className=" border-b border-gray-300  pb-2">
         <h1 className="text-2xl font-fbold">{e.title}</h1>
