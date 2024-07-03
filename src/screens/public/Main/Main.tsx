@@ -34,11 +34,11 @@ const Main = () => {
       
 
         <div className=" relative h-full  w-full flex justify-between items-center  overflow-hidden ">
-          <div className=" mt-10 sm:mt-0 md:mt-5 sm:px-2 relative flex flex-col gap-9 sm:gap-4  z-10 w-full px-20   min-h-0  lg:px-10 md:items-center py-10 sm:py-2 sm:items-start sm:w-[90%]">
+          <div className=" mt-10 sm:mt-0 md:mt-5 sm:px-2 relative flex flex-col gap-9 sm:gap-4  z-10 w-full px-20   min-h-0  lg:px-10 lg:items-center py-10 sm:py-2 items-start md:w-[100%]">
 
          
 
-              <h1 className=" w-[800px] leading-loose sm:leading-[40px] sm:w-full  text-accent  font-fbold sm:text-lg text-3xl ">
+              <h1 className=" w-[800px] md:w-[100%] leading-loose sm:leading-[40px] sm:w-full  text-accent  font-fbold sm:text-lg text-3xl ">
              
                 
               <span className="text-5xl sm:text-4xl font-fbold bg-primary-foreground px-2 py-2 box-decoration-clone text-accent ">BALAOD </span> <hr  className=" border-none bg-none h-[2vh]" />
@@ -48,7 +48,7 @@ const Main = () => {
               
               </h1>
 
-              <hr className=" animate__animated animate__slideInDown md:w-[70%] md:border-2 w-[20%] border-[2px] sm:border-[1px] border-primary-foreground sm:w-[50%]" />
+              <hr className=" animate__animated animate__slideInDown lg:hidden md:w-[70%] md:border-2 w-[20%] border-[2px] sm:border-[1px] border-primary-foreground sm:w-[50%]" />
             
 
        
@@ -89,9 +89,9 @@ const Main = () => {
       
 
         <div className=" relative h-full  w-full flex justify-between items-center  overflow-hidden ">
-          <div className=" mt-10 sm:mt-0 md:mt-5 sm:px-2 relative flex flex-col gap-9 sm:gap-4  z-10 w-full px-20   min-h-0  lg:px-10 md:items-center py-10 sm:py-2 sm:items-start sm:w-[90%]">
+          <div className=" mt-10 sm:mt-0 md:mt-5 sm:px-2 relative flex flex-col gap-9 sm:gap-4  z-10 w-full px-20   min-h-0  lg:px-10 md:items-center py-10 sm:py-2 sm:items-start md:w-[100%]">
             
-          <h1 className=" font-fbold sm:text-2xl sm:max-w-full sm:leading-[47px] text-4xl text-primary  leading-loose max-w-[60%]">
+          <h1 className=" font-fbold sm:text-2xl sm:max-w-full sm:leading-[47px] text-4xl text-primary  leading-loose max-w-[60%] md:max-w-[100%] md:text-center sm:text-left ">
     <span className="bg-background px-4 py-2 box-decoration-clone">
         {HighlightAct.title}
     </span>
