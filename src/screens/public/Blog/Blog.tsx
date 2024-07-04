@@ -86,7 +86,7 @@ const Blog = () => {
         
     </div>
 
-    <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 mb-36">
+    <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 min-h-[30vh] mb-36">
 
     
     <div>
@@ -97,8 +97,8 @@ const Blog = () => {
         <p className=' font-fmedium'>{}</p>
         </div>
 
-    {loading?
-    <div className=' flex flex-col gap-5'>
+
+    <div className={loading?' flex flex-col gap-5':' hidden'}>
 
       <Skeleton className=' h-2 w-full'/>
       <Skeleton className=' h-2 w-full'/>
@@ -117,10 +117,10 @@ const Blog = () => {
 
 
     </div>
-    :
     
-    <Tiptap con={data.content} />
-    }
+    
+    <Tiptap className={loading?'hidden':'flex'} con={data.content} />
+    
 
     
 {/*         
