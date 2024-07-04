@@ -5,12 +5,13 @@ import { Link, useParams } from 'react-router-dom'
 import { LocateIcon } from 'lucide-react'
 import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
+import { Skeleton } from '@/components/ui/skeleton'
 
 
 
 const Blog = () => {
  const  id  = useParams();
- const [_loading,setLoading] = useState(false)
+ const [loading,setLoading] = useState(false)
 
  const [data,setData]:any = useState({})
 
@@ -51,7 +52,16 @@ const Blog = () => {
   return (
     <div className=" min-h-0 w-full max-w-full  flex flex-col justify-center">
 
-<img src={data.imageURL} className=' mt-5 text-xl mb-5 object-cover h-[50vh]' alt="" />
+      {loading? 
+
+        <Skeleton className=' h-[50vh] w-full'/>
+        
+        
+       :
+        <img src={data.imageURL} className=' mt-5 text-xl mb-5 object-cover h-[50vh]' alt="" />
+        }
+
+
 
         <div className=" mt-5 px-[10vw] md:px-5">
         <Link to="/balaod/kudlit" className=" w-[90px] font-fmedium flex items-center justify-between px-2 py-2 bg-background text-black font-bold border border-gray-300 hover:bg-[#e4e4e4]">
@@ -61,20 +71,50 @@ const Blog = () => {
         Kudlit
     </Link> 
     <div className=" flex justify-between border border-x-0 py-5 text-base font-fmedium mt-4 ">
-        <p>{data.showDate?formatDate(data.date):""}</p>
-        {data.showLocation?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }
+
+      {loading?<Skeleton className=' h-6 w-[200px]'/>:
+      
+      <p>{data.showDate?formatDate(data.date):""}</p>
+      }
+
+      {loading?<Skeleton className=' h-6 w-[200px]'/>:
+<>
+{data.showLocation?<p className=' flex gap-3 items-center'> {data.location} <LocateIcon className=' h-4 w-4'/></p>: <p></p> }</>
+      
+      }
+        
+        
     </div>
 
     <div className=" flex flex-col  mt-5 font-fmedium text-lg gap-5 mb-36">
 
     
     <div>
+
+    {loading?<Skeleton className=' h-9 w-full'/>:
             <h1 className=" text-primary text-3xl font-fbold">{data.title}
-            </h1>
+            </h1>}
         <p className=' font-fmedium'>{}</p>
         </div>
 
+    {loading?
+    <div className=' flex flex-col gap-5'>
+
+      <Skeleton className=' h-2 w-full'/>
+      <Skeleton className=' h-2 w-full'/>
+      <Skeleton className=' h-2 w-full'/>
+      <Skeleton className=' h-32 w-full'/>
+
+
+
+
+    </div>
+    :
+    
     <Tiptap con={data.content} />
+    }
+
+    
 {/*         
         <div>
             <h1 className=" text-primary text-3xl font-fbold">Community Engagement: Local Citizens Participate in Process
