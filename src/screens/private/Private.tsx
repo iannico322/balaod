@@ -19,6 +19,7 @@ function Private() {
 
   const handleClick = (event:any, targetId:any) => {
     event.preventDefault();
+    
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' }); 
@@ -100,7 +101,7 @@ function Private() {
           style={{ top: navbarTop }}
           className=" transition-all duration-500 z-50 animate__animated animate__slideInDown   bg-[#4d172e] from-[#4d172e] from-5% via-background  via-40% to-background to-50% b backdrop-blur-md    fixed flex justify-between items-center w-full max-w-full py-0   "
         >
-          <Link className=" ml-5 flex items-center" to="/balaod">
+          <Link className=" ml-5 flex items-center" to="/balaod/editable">
             <img
               src={HeadLogo}
               className="  logo h-10 object-contain "
@@ -269,21 +270,30 @@ function Private() {
                   </Link>
                   <div className=" relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
                     
-                    <Link to="/balaod/editable/about" className="   flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
+                    <div  className="   flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
                       ABOUT US
                       <ChevronDown className=" group-hover:rotate-180 inline w-4 h-4 " />
-                    </Link>
+                    </div>
                     <div className=" hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md  ">
                       <Link
                         to="/balaod/editable/about#who-we-are"
-                        onClick={(e) => handleClick(e, 'who-we-are')}
+                        onClick={(e) => {
+                          navigate("/balaod/editable/about#who-we-are")
+                          window.scrollTo(0, 0);
+                          handleClick(e, 'who-we-are')
+                        
+                          
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Who We Are
                       </Link>
                       <Link
                         to="/balaod/editable/about#what-we-do"
-                        onClick={(e) => handleClick(e, 'what-we-do')}
+                        onClick={(e) => {
+                        navigate("/balaod/editable/about#what-we-do")
+                        handleClick(e, 'what-we-do')
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         What We Do
@@ -294,35 +304,54 @@ function Private() {
 
 
                   <div className="relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
-                    <Link to="/balaod/editable/programs" className="flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
+                    <div  className="flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
                       OUR PROGRAMS
                       <ChevronDown className="group-hover:rotate-180 inline w-4 h-4" />
-                    </Link>
+                    </div>
                     <div className="hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md">
                       <Link
-                        to="/balaod/editable/programs#Human Rights Promotion"
-                        onClick={(e) => handleClick(e, 'Human Rights Promotion')}
+                        to="/balaod/editable/programs"
+                        onClick={(e) => {
+                         navigate("/balaod/editable/programs#Human Rights Promotion")
+                         handleClick(e, 'Human Rights Promotion')
+                       
+                         
+                       }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Human Rights Promotion
                       </Link>
                       <Link
-                        to="/balaod/editable/programs#Environmental Justice"
-                        onClick={(e) => handleClick(e, 'Environmental Justice')}
+                        to="/balaod/editable/programs"
+                        onClick={(e) => {
+                          navigate("/balaod/editable/programs#Environmental Justice")
+                          handleClick(e, 'Environmental Justice')
+                        
+                          
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Environmental Justice
                       </Link>
                       <Link
-                        to="/balaod/editable/programs#Women and Children Protection"
-                        onClick={(e) => handleClick(e, 'Women and Children Protection')}
+                        to="/balaod/editable/programs"
+                        onClick={(e) => {
+                         navigate("/balaod/editable/programs#Women and Children Protection")
+                         handleClick(e, 'Women and Children Protection')
+                         
+                       }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Women and Children Protection
                       </Link>
                       <Link
-                        to="/balaod/editable/programs#Institutional Development"
-                        onClick={(e) => handleClick(e, 'Institutional Development')}
+                        to="/balaod/editable/programs"
+                        onClick={(e) => {
+                          navigate("/balaod/editable/programs#Institutional Development")
+                          handleClick(e, 'Institutional Development')
+                        
+                          
+                        }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
                       >
                         Institutional Development

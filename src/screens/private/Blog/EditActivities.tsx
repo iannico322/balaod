@@ -2,7 +2,7 @@
 import Footer from '@/components/footer/Footer'
 // import Tiptap from './Tiptap'
 import { Link, useNavigate,useParams} from 'react-router-dom'
-import { LocateIcon } from 'lucide-react'
+import { Loader2Icon, LocateIcon } from 'lucide-react'
 // import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
 import { Switch } from '@/components/ui/switch'
@@ -18,7 +18,14 @@ import imageCompression from 'browser-image-compression';
 const EditActivity = () => {
   const  id  = useParams();
   const navigate = useNavigate()
- const [_loading,_setLoading] = useState(false)
+ const [loading,setLoading] = useState(false)
+ const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
  
 
@@ -60,6 +67,7 @@ const EditActivity = () => {
     GetBlog() 
 
     setPreview(data.imageURL);
+    
 
   },[])
 
@@ -77,6 +85,7 @@ const EditActivity = () => {
  
   useEffect(()=>{
     localStorage.setItem('saveEdit',JSON.stringify(data))
+    setData({...data,date:formatDate(data.date)})
     console.log(data)
 
   
@@ -174,11 +183,13 @@ const EditActivity = () => {
 
  
     <TiptapEdit data={data.content} setData={setData} />
-    <Button className=' font-fbold' onClick={async(e:any)=>{
+    <Button className={loading?' font-fbold pointer-events-none flex gap-3 ':' font-fbold pointer-events-auto'} onClick={async(e:any)=>{
       e.preventDefault()
       console.log(checkBlankContent(data))
 
       if (!checkBlankContent(data)) {
+
+        setLoading(true)
        
 
 
@@ -193,9 +204,11 @@ const EditActivity = () => {
             },
           })
           .then((_e: any) => {
+
+            setLoading(false)
             Swal.fire({
-              title: "Added!",
-              text: "The new Activity has been Added",
+              title: "Updated!",
+              text: "The Activity has been Updated",
               icon: "success",
               showConfirmButton: false,
               timer: 2000,
@@ -211,9 +224,21 @@ const EditActivity = () => {
              navigate('/balaod/editable/kudlit')
           });
       } catch (error) {
-        console.error("Error uploading partner data:", error);
-        // Handle errors appropriately (e.g., show error message to user)
+        Swal.fire({
+          title: "Error",
+          text: "Something is wrong, please contact the creator",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
+
+      setTimeout(()=>{
+
+        setLoading(false)
+      },5000)
+
+
       }else{
       Swal.fire({
         title: "Empty Field (Photo,title,content)!",
@@ -231,7 +256,7 @@ const EditActivity = () => {
    
       
 
-    }} >Update Blog</Button>
+    }} > <Loader2Icon className={loading?' animate-spin ':' hidden'}/> Update Blog</Button>
    
 {/*         
         <div>

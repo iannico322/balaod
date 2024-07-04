@@ -13,8 +13,10 @@ import axios from "../../../plugin/axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import ActivitiesCard from "@/components/card/card3";
+import { Loader2Icon } from "lucide-react";
 
 export function Form({ resetPartners, id,e,order}: any) {
+  const [loading,setLoading] = useState(false)
   const [show,setShow] = useState(false)
 
 
@@ -57,6 +59,8 @@ export function Form({ resetPartners, id,e,order}: any) {
     console.log(id)
     console.log(order+1)
 
+    setLoading(true)
+
     try {
       await axios
         .put(`posting/activity/${id}`, {
@@ -85,6 +89,7 @@ export function Form({ resetPartners, id,e,order}: any) {
               })
               .then((_e: any) => {
                 console.log("updated!")
+                setLoading(false)
                 resetPartners();
                 Swal.fire({
                   title: "Added!",
@@ -102,13 +107,22 @@ export function Form({ resetPartners, id,e,order}: any) {
             // Handle errors appropriately (e.g., show error message to user)
           }
 
+          
+
           // Hide the form after submission
           setDialogOpen(false);
         });
+
+        
     } catch (error) {
       console.error("Error uploading partner data:", error);
       // Handle errors appropriately (e.g., show error message to user)
     }
+
+    setTimeout(()=>{
+
+      setLoading(false)
+    },5000)
     
     
   };
@@ -156,7 +170,7 @@ export function Form({ resetPartners, id,e,order}: any) {
           ))}
           
           <DialogFooter>
-            <Button type="submit">Update</Button>
+            <Button className={loading?' font-fbold pointer-events-none flex gap-3 ':' font-fbold pointer-events-auto'} type="submit"> <Loader2Icon className={loading?' animate-spin ':' hidden'}/> Update</Button>
           </DialogFooter>
         </form>
 

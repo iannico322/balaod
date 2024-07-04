@@ -2,7 +2,7 @@
 import Footer from '@/components/footer/Footer'
 // import Tiptap from './Tiptap'
 import { Link, useNavigate} from 'react-router-dom'
-import { LocateIcon } from 'lucide-react'
+import { Loader2Icon, LocateIcon } from 'lucide-react'
 // import axios from '../../../plugin/axios'
 import { useEffect, useState } from 'react'
 import { Switch } from '@/components/ui/switch'
@@ -17,7 +17,7 @@ import imageCompression from 'browser-image-compression';
 
 const CreatActivity = () => {
   const navigate = useNavigate()
- const [_loading,_setLoading] = useState(false)
+ const [loading,setLoading] = useState(false)
 
  const [data,setData] = useState<any>(JSON.parse(localStorage.getItem('saveEdit')||""))
 
@@ -153,11 +153,12 @@ const CreatActivity = () => {
 
  
     <TiptapEdit data={data.content} setData={setData} />
-    <Button className=' font-fbold' onClick={async(e:any)=>{
+    <Button className={loading?' font-fbold pointer-events-none flex gap-3 ':' font-fbold pointer-events-auto'} onClick={async(e:any)=>{
       e.preventDefault()
       console.log(checkBlankContent(data))
-
+      
       if (!checkBlankContent(data)) {
+        setLoading(true)
         const formData = new FormData();
       formData.append("title", data.title);
       formData.append("content", data.content);
@@ -179,6 +180,7 @@ const CreatActivity = () => {
             },
           })
           .then((_e: any) => {
+            setLoading(false)
             Swal.fire({
               title: "Added!",
               text: "The new Activity has been Added",
@@ -197,9 +199,19 @@ const CreatActivity = () => {
              navigate('/balaod/editable/kudlit')
           });
       } catch (error) {
-        console.error("Error uploading partner data:", error);
+        Swal.fire({
+          title: "Error",
+          text: "Something is wrong, please contact the creator",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         // Handle errors appropriately (e.g., show error message to user)
       }
+      setTimeout(()=>{
+
+        setLoading(false)
+      },5000)
       }else{
       Swal.fire({
         title: "Empty Field (Photo,title,content)!",
@@ -217,7 +229,7 @@ const CreatActivity = () => {
    
       
 
-    }} >Publish Blog</Button>
+    }} >  <Loader2Icon className={loading?' animate-spin ':' hidden'}/> Publish Blog</Button>
    
 {/*         
         <div>
