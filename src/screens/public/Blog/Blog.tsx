@@ -104,6 +104,14 @@ const Blog = () => {
       <Skeleton className=' h-2 w-full'/>
       <Skeleton className=' h-2 w-full'/>
       <Skeleton className=' h-32 w-full'/>
+      <Skeleton className='  h-12 w-full'/>
+      <Skeleton className='  h-12 w-full'/>
+
+      <Skeleton className=' h-2 w-full'/>
+      <Skeleton className=' h-2 w-full'/>
+      <Skeleton className=' h-2 w-full'/>
+
+
 
 
 
