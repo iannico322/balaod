@@ -35,7 +35,7 @@ const Page1 = () => {
         <div className=" flex  justify-center gap-10 sm:gap-5 items-start  ">
           <Reveal2>
             <div className=" flex flex-col">
-              <h1 className=" text-primary font-fbold  md:text-4xl text-7xl font-semibold">
+            <h1 className=" text-primary font-fbold  md:text-4xl lg:text-5xl text-7xl font-semibold">
                 Balaod
               </h1>
               <p className=" text-primary text-2xl  sm:text-lg font-fextra-bold-italic">
