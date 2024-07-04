@@ -3,11 +3,10 @@
 
 import CoverSlide from "@/components/animation/coverSlide"
 import Footer from '@/components/footer/Footer'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import DOMPurify from 'dompurify';
-import axios from "../../plugin/axios"
-import { Skeleton } from "@/components/ui/skeleton"
+
 
 
 const Kudlit = () => {
@@ -16,7 +15,7 @@ const Kudlit = () => {
   const handleSearchChange = (event:any) => {
     setSearchQuery(event.target.value);
   }
-  const [kudlits,setKudlits] =  useState([])
+  const [kudlits,_setKudlits] =  useState(JSON.parse(localStorage.getItem('kudlit')||""))
 
   const filterData = (data:any, query:any) => {
     if (!query) {
@@ -30,27 +29,10 @@ const Kudlit = () => {
     });
   }
 
-  const [loading,setLoading]=useState(false)
-  const [filteredData,setFilterData]:any = useState(kudlits) ;
 
-  function GetKudlit() {
-    setLoading(true)
-    axios.get('posting/kudlit?page=1').then((e:any)=>{
-    
-      setFilterData(e.data.activities)
-      setKudlits(e.data.activities)
-      setTimeout(()=>{
-        setLoading(false)
-      },1000)
-    })
+  const [filteredData,setFilterData]:any = useState(JSON.parse(localStorage.getItem('kudlit')||"")) ;
 
-    setTimeout(()=>{
-      setLoading(false)
-    },10000)
-  }
-  useEffect(()=>{
-    GetKudlit()
-  },[])
+ 
   
 
   const truncateText = (text:any, maxLength:any) => {
@@ -127,16 +109,8 @@ const Kudlit = () => {
 
 
 <div className=' flex flex-col w-full  gap-3 min-h-[30vh]'>
-      {loading?
-      <>
-         <Skeleton className="h-[300px] w-full" />
-         <Skeleton className="h-[300px] w-full" />
-         <Skeleton className="h-[300px] w-full" />
-         <Skeleton className="h-[300px] w-full" />
-         
-    </>
-    :
-    filteredData.slice(0, 10).map((e:any,key:any)=>(
+    
+    {filteredData.slice(0, 10).map((e:any,key:any)=>(
 
       <CoverSlide key={key}>
 

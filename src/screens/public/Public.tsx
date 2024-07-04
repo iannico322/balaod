@@ -39,6 +39,15 @@ function Public() {
     };
   }, []);
 
+  function GetKudlit() {
+
+    axios.get('posting/kudlit').then((e:any)=>{
+    
+      localStorage.setItem('kudlit',JSON.stringify(e.data.activities))
+    })
+  }
+ 
+
 
   function GetData(){
     try {
@@ -53,7 +62,9 @@ function Public() {
     
   }
   useEffect(()=>{
+    
     GetData()
+    GetKudlit()
   },[])
 
   useEffect(() => {
@@ -246,10 +257,10 @@ function Public() {
                   </Link>
                   <div className=" relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
                     
-                    <Link to="/balaod/about" className="   flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
+                    <div className="   flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
                       ABOUT US
                       <ChevronDown className=" group-hover:rotate-180 inline w-4 h-4 " />
-                    </Link>
+                    </div>
                     <div className=" hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md  ">
                       <Link
                         to="/balaod/about"
@@ -280,10 +291,10 @@ function Public() {
 
 
                   <div className="relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
-                    <Link to="/balaod/programs" className="flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
+                    <div className="flex items-center gap-3 text-lg font-fbold px-4 py-2 ">
                       OUR PROGRAMS
                       <ChevronDown className="group-hover:rotate-180 inline w-4 h-4" />
-                    </Link>
+                    </div>
                     <div className="hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md">
                       <Link
                         to="/balaod/programs"
