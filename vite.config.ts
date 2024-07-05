@@ -4,7 +4,7 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
         // REPO-NAME
-  base: "/balaod",
+  base: "/",
   plugins: [react()],
   resolve: {
     alias: {

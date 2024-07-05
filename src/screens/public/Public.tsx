@@ -102,7 +102,7 @@ function Public() {
             <div className=" flex h-full items-center font-regular justify-center w-full lg:hidden">
               <NavLink onClick={() => {
                 window.scrollTo(0, 0);
-                navigate("/balaod/home")
+                navigate("/home")
               
                 
               }} text="HOME" />
@@ -110,10 +110,10 @@ function Public() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <Link to="/balaod/about"
+                <Link to="/about"
                 onClick={() => {
                   window.scrollTo(0, 0);
-                  navigate("/balaod/about")
+                  navigate("/about")
                 
                   
                 }}
@@ -124,9 +124,9 @@ function Public() {
                 </Link>
                 <div className="hidden w-[200px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
-                    to="/balaod/about"
+                    to="/about"
                     onClick={(e) => {
-                      navigate("/balaod/about#who-we-are")
+                      navigate("/about#who-we-are")
                       window.scrollTo(0, 0);
                       handleClick(e, 'who-we-are')
                     
@@ -137,9 +137,9 @@ function Public() {
                     Who We Are
                   </Link>
                   <Link
-                    to="/balaod/about"
+                    to="/about"
                     onClick={(e) => {
-                    navigate("/balaod/about#what-we-do")
+                    navigate("/about#what-we-do")
                     handleClick(e, 'what-we-do')
                     }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
@@ -152,10 +152,10 @@ function Public() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <Link to="/balaod/programs"
+                <Link to="/programs"
                 onClick={() => {
                   window.scrollTo(0, 0);
-                  navigate("/balaod/programs")
+                  navigate("/programs")
                 
                   
                 }}
@@ -166,9 +166,9 @@ function Public() {
                 </Link>
                 <div className="hidden w-[300px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
-                     to="/balaod/programs"
+                     to="/programs"
                      onClick={(e) => {
-                      navigate("/balaod/programs#Human Rights Promotion")
+                      navigate("/programs#Human Rights Promotion")
                       handleClick(e, 'Human Rights Promotion')
                     
                       
@@ -178,9 +178,9 @@ function Public() {
                     Human Rights Promotion
                   </Link>
                   <Link
-                    to="/balaod/programs"
+                    to="/programs"
                     onClick={(e) => {
-                      navigate("/balaod/programs#Environmental Justice")
+                      navigate("/programs#Environmental Justice")
                       handleClick(e, 'Environmental Justice')
                     
                       
@@ -191,9 +191,9 @@ function Public() {
 
                   </Link>
                   <Link
-                     to="/balaod/programs"
+                     to="/programs"
                      onClick={(e) => {
-                      navigate("/balaod/programs#Women and Children Protection")
+                      navigate("/programs#Women and Children Protection")
                       handleClick(e, 'Women and Children Protection')
                     
                       
@@ -203,9 +203,9 @@ function Public() {
                     Women and Children Protection
                   </Link>
                   <Link
-                    to="/balaod/programs"
+                    to="/programs"
                     onClick={(e) => {
-                      navigate("/balaod/programs#Institutional Development")
+                      navigate("/programs#Institutional Development")
                       handleClick(e, 'Institutional Development')
                     
                       
@@ -220,14 +220,14 @@ function Public() {
               <NavLink
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate("/balaod/kudlit")
+                navigate("/kudlit")
                 
               }}
               text="Kudlit" />     
               <NavLink 
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate("/balaod/work-with-us")
+                navigate("/work-with-us")
               
                 
               }}
@@ -240,7 +240,7 @@ function Public() {
                   }
                   onClick={() => {
                     window.scrollTo(0, 0);
-                    navigate("/balaod/kudlit")
+                    navigate("/kudlit")
                     
                   }}
                 >
@@ -252,7 +252,7 @@ function Public() {
               <div className="relative flex items-center px-4 ">
                 <MenuIcon className="h-7 w-7 cursor-pointer " onClick={() => setShowMenu(!showMenu)} />
                 <div className={`absolute ${showMenu ? 'flex' : 'hidden'} top-full border-b-2 border-primary-foreground right-0 bg-white/60 text-black shadow-lg w-[100vw] flex-col text-right sm:text-center`}>
-                  <Link to="/balaod/home" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                  <Link to="/home" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
                     HOME
                   </Link>
                   <div className=" relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
@@ -263,9 +263,9 @@ function Public() {
                     </div>
                     <div className=" hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md  ">
                       <Link
-                        to="/balaod/about"
+                        to="/about"
                         onClick={(e) => {
-                          navigate("/balaod/about#who-we-are")
+                          navigate("/about#who-we-are")
                           window.scrollTo(0, 0);
                           handleClick(e, 'who-we-are')
                         
@@ -276,9 +276,9 @@ function Public() {
                         Who We Are
                       </Link>
                       <Link
-                        to="/balaod/about"
+                        to="/about"
                         onClick={(e) => {
-                        navigate("/balaod/about#what-we-do")
+                        navigate("/about#what-we-do")
                         handleClick(e, 'what-we-do')
                         }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
@@ -297,9 +297,9 @@ function Public() {
                     </div>
                     <div className="hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md">
                       <Link
-                        to="/balaod/programs"
+                        to="/programs"
                         onClick={(e) => {
-                         navigate("/balaod/programs#Human Rights Promotion")
+                         navigate("/programs#Human Rights Promotion")
                          handleClick(e, 'Human Rights Promotion')
                        
                          
@@ -309,9 +309,9 @@ function Public() {
                         Human Rights Promotion
                       </Link>
                       <Link
-                        to="/balaod/programs"
+                        to="/programs"
                         onClick={(e) => {
-                          navigate("/balaod/programs#Environmental Justice")
+                          navigate("/programs#Environmental Justice")
                           handleClick(e, 'Environmental Justice')
                         
                           
@@ -321,9 +321,9 @@ function Public() {
                         Environmental Justice
                       </Link>
                       <Link
-                        to="/balaod/programs"
+                        to="/programs"
                         onClick={(e) => {
-                         navigate("/balaod/programs#Women and Children Protection")
+                         navigate("/programs#Women and Children Protection")
                          handleClick(e, 'Women and Children Protection')
                        
                          
@@ -333,9 +333,9 @@ function Public() {
                         Women and Children Protection
                       </Link>
                       <Link
-                        to="/balaod/programs"
+                        to="/programs"
                         onClick={(e) => {
-                          navigate("/balaod/programs#Institutional Development")
+                          navigate("/programs#Institutional Development")
                           handleClick(e, 'Institutional Development')
                         
                           
@@ -346,10 +346,10 @@ function Public() {
                       </Link>
                     </div>
                   </div>
-                  <Link to="/balaod/kudlit" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                  <Link to="/kudlit" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
                     Kudlit
                   </Link>
-                  <Link to="/balaod/work-with-us" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                  <Link to="/work-with-us" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
                     Work With Us
                   </Link>
                   

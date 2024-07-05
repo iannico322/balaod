@@ -25,7 +25,7 @@ const SignIn = () => {
    
   }
   useEffect(()=>{
-    localStorage.getItem('accessToken')?navigate('/balaod/editable/'):""
+    localStorage.getItem('accessToken')?navigate('/editable/'):""
     GetKudlit()
   },[])
   const [loading,setLoading] = useState(false)
@@ -54,7 +54,7 @@ const SignIn = () => {
                 
                 localStorage.setItem("user",JSON.stringify(e.data.user))
                 localStorage.setItem("accessToken",e.data.accessToken)
-                navigate('/balaod/editable/')
+                navigate('/editable/')
 
                 
                 break;

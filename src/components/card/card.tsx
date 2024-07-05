@@ -11,7 +11,7 @@ function ActivitiesCard({className,e}:any) {
     <Reveal>
     <div onClick={()=>{
       window.scrollTo(0, 0);
-      navigate(`/balaod/blog/${e._id}`)
+      navigate(`/blog/${e._id}`)
       localStorage.setItem("selected",JSON.stringify(e))
 
     }}  className={"  cursor-pointer rounded-sm  border  justify-center  border-card flex flex-col items-center relative  bg-primary aspect-[7/10] overflow-hidden "+ className}>

@@ -9,7 +9,7 @@ function ActivitiesCard({className,e}:any) {
     <div 
     onClick={()=>{
       window.scrollTo(0, 0);
-      window.open(`/balaod/blog/${e._id}`, '_blank');
+      window.open(`/blog/${e._id}`, '_blank');
       localStorage.setItem("selected",JSON.stringify(e))
 
     }} 

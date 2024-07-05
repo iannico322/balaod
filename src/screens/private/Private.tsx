@@ -51,7 +51,7 @@ function Private() {
     
   }
   useEffect(()=>{
-    localStorage.getItem('accessToken')==null?navigate('/balaod/editable/admin/'):""
+    localStorage.getItem('accessToken')==null?navigate('/editable/admin/'):""
 
     localStorage.getItem('saveEdit')==null?localStorage.setItem('saveEdit',JSON.stringify({
       title:"",content:"",highlight:false,photo:null,location:'',date:null,showDate:true,showLocation:true
@@ -101,7 +101,7 @@ function Private() {
           style={{ top: navbarTop }}
           className=" transition-all duration-500 z-50 animate__animated animate__slideInDown   bg-[#4d172e] from-[#4d172e] from-5% via-background  via-40% to-background to-50% b backdrop-blur-md    fixed flex justify-between items-center w-full max-w-full py-0   "
         >
-          <Link className=" ml-5 flex items-center" to="/balaod/editable">
+          <Link className=" ml-5 flex items-center" to="/editable">
             <img
               src={HeadLogo}
               className="  logo h-10 object-contain "
@@ -112,7 +112,7 @@ function Private() {
             <div className=" flex h-full items-center font-regular justify-center w-full lg:hidden">
               <NavLink onClick={() => {
                 window.scrollTo(0, 0);
-                navigate("/balaod/editable/home")
+                navigate("/editable/home")
               
                 
               }} text="HOME" />
@@ -120,10 +120,10 @@ function Private() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <Link to="/balaod/editable/about"
+                <Link to="/editable/about"
                 onClick={() => {
                   window.scrollTo(0, 0);
-                  navigate("/balaod/editable/about")
+                  navigate("/editable/about")
                 
                   
                 }}
@@ -134,9 +134,9 @@ function Private() {
                 </Link>
                 <div className="hidden w-[200px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
-                    to="/balaod/editable/about"
+                    to="/editable/about"
                     onClick={(e) => {
-                      navigate("/balaod/editable/about#who-we-are")
+                      navigate("/editable/about#who-we-are")
                       window.scrollTo(0, 0);
                       handleClick(e, 'who-we-are')
                     
@@ -147,9 +147,9 @@ function Private() {
                     Who We Are
                   </Link>
                   <Link
-                    to="/balaod/editable/about"
+                    to="/editable/about"
                     onClick={(e) => {
-                    navigate("/balaod/editable/about#what-we-do")
+                    navigate("/editable/about#what-we-do")
                     handleClick(e, 'what-we-do')
                     }}
                     className=" font-fmedium capitalize px-3 py-4 text-sm bg-gray-200 hover:bg-background"
@@ -162,10 +162,10 @@ function Private() {
               <div className="hover:cursor-pointer relative group  font-fbold h-full px-8 flex items-center justify-center hover:bg-foreground text-xs transition-all  duration-75">
                 {" "}
                 {/* Dropdown Container */}
-                <Link to="/balaod/editable/programs"
+                <Link to="/editable/programs"
                 onClick={() => {
                   window.scrollTo(0, 0);
-                  navigate("/balaod/editable/programs")
+                  navigate("/editable/programs")
                 
                   
                 }}
@@ -176,9 +176,9 @@ function Private() {
                 </Link>
                 <div className="hidden w-[300px] group-hover:flex flex-col absolute top-full left-0 bg-accent text-accent-foreground">
                   <Link
-                     to="/balaod/editable/programs"
+                     to="/editable/programs"
                      onClick={(e) => {
-                      navigate("/balaod/editable/programs#Human Rights Promotion")
+                      navigate("/editable/programs#Human Rights Promotion")
                       handleClick(e, 'Human Rights Promotion')
                     
                       
@@ -188,9 +188,9 @@ function Private() {
                     Human Rights Promotion
                   </Link>
                   <Link
-                    to="/balaod/editable/programs"
+                    to="/editable/programs"
                     onClick={(e) => {
-                      navigate("/balaod/editable/programs#Environmental Justice")
+                      navigate("/editable/programs#Environmental Justice")
                       handleClick(e, 'Environmental Justice')
                     
                       
@@ -201,9 +201,9 @@ function Private() {
 
                   </Link>
                   <Link
-                     to="/balaod/editable/programs"
+                     to="/editable/programs"
                      onClick={(e) => {
-                      navigate("/balaod/editable/programs#Women and Children Protection")
+                      navigate("/editable/programs#Women and Children Protection")
                       handleClick(e, 'Women and Children Protection')
                     
                       
@@ -213,9 +213,9 @@ function Private() {
                     Women and Children Protection
                   </Link>
                   <Link
-                    to="/balaod/editable/programs"
+                    to="/editable/programs"
                     onClick={(e) => {
-                      navigate("/balaod/editable/programs#Institutional Development")
+                      navigate("/editable/programs#Institutional Development")
                       handleClick(e, 'Institutional Development')
                     
                       
@@ -230,14 +230,14 @@ function Private() {
               <NavLink
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate("/balaod/editable/kudlit")
+                navigate("/editable/kudlit")
                 
               }}
               text="Kudlit" />     
               <NavLink 
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate("/balaod/editable/work-with-us")
+                navigate("/editable/work-with-us")
               
                 
               }}
@@ -253,7 +253,7 @@ function Private() {
                     localStorage.removeItem('user')
 
                     window.scrollTo(0, 0);
-                    navigate("/balaod/admin")
+                    navigate("/admin")
                     
                   }}
                 >
@@ -265,7 +265,7 @@ function Private() {
               <div className="relative flex items-center px-4 ">
                 <MenuIcon className="h-7 w-7 cursor-pointer " onClick={() => setShowMenu(!showMenu)} />
                 <div className={`absolute ${showMenu ? 'flex' : 'hidden'} top-full border-b-2 border-primary-foreground right-0 bg-white/60 text-black shadow-lg w-[100vw] flex-col text-right sm:text-center`}>
-                  <Link to="/balaod/editable/home" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                  <Link to="/editable/home" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
                     HOME
                   </Link>
                   <div className=" relative group w-[100vw]  hover:bg-gray-100  flex flex-col items-end justify-end sm:items-center">
@@ -276,9 +276,9 @@ function Private() {
                     </div>
                     <div className=" hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md  ">
                       <Link
-                        to="/balaod/editable/about#who-we-are"
+                        to="/editable/about#who-we-are"
                         onClick={(e) => {
-                          navigate("/balaod/editable/about#who-we-are")
+                          navigate("/editable/about#who-we-are")
                           window.scrollTo(0, 0);
                           handleClick(e, 'who-we-are')
                         
@@ -289,9 +289,9 @@ function Private() {
                         Who We Are
                       </Link>
                       <Link
-                        to="/balaod/editable/about#what-we-do"
+                        to="/editable/about#what-we-do"
                         onClick={(e) => {
-                        navigate("/balaod/editable/about#what-we-do")
+                        navigate("/editable/about#what-we-do")
                         handleClick(e, 'what-we-do')
                         }}
                         className="block px-4 py-2 hover:bg-gray-200 font-fmedium text-sm"
@@ -310,9 +310,9 @@ function Private() {
                     </div>
                     <div className="hidden group-hover:flex flex-col w-[100vw]  right-full top-0  text-black rounded-md">
                       <Link
-                        to="/balaod/editable/programs"
+                        to="/editable/programs"
                         onClick={(e) => {
-                         navigate("/balaod/editable/programs#Human Rights Promotion")
+                         navigate("/editable/programs#Human Rights Promotion")
                          handleClick(e, 'Human Rights Promotion')
                        
                          
@@ -322,9 +322,9 @@ function Private() {
                         Human Rights Promotion
                       </Link>
                       <Link
-                        to="/balaod/editable/programs"
+                        to="/editable/programs"
                         onClick={(e) => {
-                          navigate("/balaod/editable/programs#Environmental Justice")
+                          navigate("/editable/programs#Environmental Justice")
                           handleClick(e, 'Environmental Justice')
                         
                           
@@ -334,9 +334,9 @@ function Private() {
                         Environmental Justice
                       </Link>
                       <Link
-                        to="/balaod/editable/programs"
+                        to="/editable/programs"
                         onClick={(e) => {
-                         navigate("/balaod/editable/programs#Women and Children Protection")
+                         navigate("/editable/programs#Women and Children Protection")
                          handleClick(e, 'Women and Children Protection')
                          
                        }}
@@ -345,9 +345,9 @@ function Private() {
                         Women and Children Protection
                       </Link>
                       <Link
-                        to="/balaod/editable/programs"
+                        to="/editable/programs"
                         onClick={(e) => {
-                          navigate("/balaod/editable/programs#Institutional Development")
+                          navigate("/editable/programs#Institutional Development")
                           handleClick(e, 'Institutional Development')
                         
                           
@@ -358,10 +358,10 @@ function Private() {
                       </Link>
                     </div>
                   </div>
-                  <Link to="/balaod/editable/kudlit" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                  <Link to="/editable/kudlit" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
                     Kudlit
                   </Link>
-                  <Link to="/balaod/editable/work-with-us" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
+                  <Link to="/editable/work-with-us" className="block text-lg font-fbold px-4 py-2 hover:bg-gray-100">
                     Work With Us
                   </Link>
                 
@@ -372,7 +372,7 @@ function Private() {
                     localStorage.removeItem('user')
 
                     window.scrollTo(0, 0);
-                    navigate("/balaod/admin")
+                    navigate("/admin")
                     
                   }}
                 >

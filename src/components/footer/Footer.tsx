@@ -17,26 +17,26 @@ const Footer = () => {
 
         <div  onClick={() => {
                   window.scrollTo(0, 0);
-                  navigate("/balaod/")
+                  navigate("/")
                   
                 }}className=" cursor-pointer">Home</div>
         <div 
         onClick={() => {
           window.scrollTo(0, 0);
-          navigate("/balaod/about")
+          navigate("/about")
         }} 
         className=" cursor-pointer">About Us</div>
         <div 
         onClick={() => {
           window.scrollTo(0, 0);
-          navigate('/balaod/programs')
+          navigate('/programs')
         }} 
         className=" cursor-pointer">Our Programs</div>
         <p className=" cursor-pointer">Kudlit</p>
         <div 
         onClick={() => {
           window.scrollTo(0, 0);
-          navigate('/balaod/work-with-us')
+          navigate('/work-with-us')
         }} 
         className=" cursor-pointer">Work With Us</div>
 
