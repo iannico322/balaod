@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>React Router</title>
-    <script type="text/javascript">
-      (function() {
-        var l = window.location;
-        var pathname = l.pathname.split("/").slice(0, -1).join("/");
-        var redirectUrl = l.protocol + "//" + l.host + pathname + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
-        window.location.replace(redirectUrl);
-      })();
-    </script>
-  </head>
-  <body></body>
+<head>
+  <meta charset="utf-8" />
+  <title>React Router</title>
+  <script type="text/javascript">
+    (function() {
+      var l = window.location;
+      var segments = l.pathname.split("/");
+      var redirectUrl;
+
+      if (segments.length > 2) { // Adjust this condition as per your routing structure
+        var path = segments.slice(0, -1).join("/");
+        redirectUrl = l.protocol + "//" + l.host + path + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
+      } else {
+        redirectUrl = l.protocol + "//" + l.host + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
+      }
+
+      window.location.replace(redirectUrl);
+    })();
+  </script>
+</head>
+<body></body>
 </html>
