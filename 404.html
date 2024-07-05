@@ -7,7 +7,7 @@
     (function() {
       var l = window.location;
       var redirectUrl = l.protocol + "//" + l.host + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
-      window.location.replace(redirectUrl);
+      window.location.href = redirectUrl; // Use `window.location.href` instead of `replace`
     })();
   </script>
 </head>
