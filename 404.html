@@ -6,11 +6,8 @@
   <script type="text/javascript">
     (function() {
       var l = window.location;
-      if (!l.search.includes('redirect=')) { // Prevent infinite loop
-        var pathname = l.pathname.split("/").slice(0, -1).join("/");
-        var redirectUrl = l.protocol + "//" + l.host + pathname + encodeURIComponent(l.pathname + l.search + l.hash);
-        window.location.replace(redirectUrl);
-      }
+      var redirectUrl = l.protocol + "//" + l.host + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
+      window.location.replace(redirectUrl);
     })();
   </script>
 </head>
