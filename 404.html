@@ -6,17 +6,13 @@
   <script type="text/javascript">
     (function() {
       var l = window.location;
-      var segments = l.pathname.split("/");
-      var redirectUrl;
+      var pathname = l.pathname;
 
-      if (segments.length > 2) { // Adjust this condition as per your routing structure
-        var path = segments.slice(0, -1).join("/");
-        redirectUrl = l.protocol + "//" + l.host + path + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
-      } else {
-        redirectUrl = l.protocol + "//" + l.host + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
+      // Check if the pathname has more than one segment
+      if (pathname.split('/').filter(Boolean).length > 1) {
+        var redirectUrl = l.protocol + '//' + l.host + '/index.html?redirect=' + encodeURIComponent(pathname + l.search + l.hash);
+        window.location.replace(redirectUrl);
       }
-
-      window.location.replace(redirectUrl);
     })();
   </script>
 </head>
