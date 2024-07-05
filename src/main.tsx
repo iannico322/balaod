@@ -69,7 +69,7 @@ import ProtectedRoute from './JWT/ProtectedRoute.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/balaod/admin",
+    path: "/admin",
     element: <>
     <Suspense fallback={<Loader />}>
       <SignIn/>
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
   </>,
   },
   {
-    path: "/balaod/editable",
+    path: "/editable",
     element:
     
     <ProtectedRoute>
@@ -86,11 +86,11 @@ const router = createBrowserRouter([
     ,
     children: [
       {
-        path: "/balaod/editable", 
-        element: <Navigate to="/balaod/editable/home" />, 
+        path: "/editable", 
+        element: <Navigate to="/editable/home" />, 
       },
       {
-        path: "/balaod/editable/home",
+        path: "/editable/home",
         element: <>
         <Suspense fallback={<Loader />}>
           <Home2 />
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
       },
       
       {
-        path: "/balaod/editable/about",
+        path: "/editable/about",
         element: <>
         <Suspense fallback={<Loader />}>
           <AboutUs2/>
@@ -107,7 +107,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/editable/programs",
+        path: "/editable/programs",
         element: <>
         <Suspense fallback={<Loader />}>
           <Programs2/>
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
       },
       
       {
-        path: "/balaod/editable/work-with-us",
+        path: "/editable/work-with-us",
         element: <>
         <Suspense fallback={<Loader />}>
           <WorkUs2/>
@@ -124,7 +124,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/editable/kudlit",
+        path: "/editable/kudlit",
         element: <>
         <Suspense fallback={<Loader />}>
           <Kudlit2/>
@@ -132,7 +132,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/editable/blog/:uid/",
+        path: "/editable/blog/:uid/",
         element: <>
         <Suspense fallback={<Loader />}>
           <Blog2/>
@@ -140,7 +140,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/editable/edit-blog/:uid/",
+        path: "/editable/edit-blog/:uid/",
         element: <>
         <Suspense fallback={<Loader />}>
           <EditActivity/>
@@ -148,7 +148,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/editable/create-blog/",
+        path: "/editable/create-blog/",
         element: <>
         <Suspense fallback={<Loader />}>
           <CreatActivity/>
@@ -160,17 +160,21 @@ const router = createBrowserRouter([
    
   },
   {
-    path: "/balaod/",
+    path: "*",
+    element: <NotFound />,
+  },
+  {
+    path: "/",
     element: <Public />,
     
     children: [
       {
-        path: "/balaod/", 
-        element: <Navigate to="/balaod/home" />, 
+        path: "/", 
+        element: <Navigate to="/home" />, 
       },
       
       {
-        path: "/balaod/home",
+        path: "/home",
         element: <>
         <Suspense fallback={<Loader />}>
           <Home />
@@ -179,7 +183,7 @@ const router = createBrowserRouter([
       },
       
       {
-        path: "/balaod/about",
+        path: "/about",
         element: <>
         <Suspense fallback={<Loader />}>
           <AboutUs/>
@@ -187,7 +191,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/programs",
+        path: "/programs",
         element: <>
         <Suspense fallback={<Loader />}>
           <Programs/>
@@ -196,7 +200,7 @@ const router = createBrowserRouter([
       },
       
       {
-        path: "/balaod/work-with-us",
+        path: "/work-with-us",
         element: <>
         <Suspense fallback={<Loader />}>
           <WorkUs/>
@@ -204,7 +208,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/kudlit",
+        path: "/kudlit",
         element: <>
         <Suspense fallback={<Loader />}>
           <Kudlit/>
@@ -212,7 +216,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/balaod/blog/:uid/",
+        path: "/blog/:uid/",
         element: <>
         <Suspense fallback={<Loader />}>
           <Blog/>

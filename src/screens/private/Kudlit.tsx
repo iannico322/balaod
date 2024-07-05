@@ -143,7 +143,7 @@ const Kudlit = () => {
             Kudlit
             <Link 
       className=' text-sm px-4 py-2 rounded-md border border-input bg-primary hover:bg-accent hover:text-accent-foreground'
-      to="/balaod/editable/create-blog"
+      to="/editable/create-blog"
 
       >Create Activity</Link>
             </h1>
@@ -186,7 +186,7 @@ const Kudlit = () => {
         <div className=" absolute z-40 right-0 flex gap-5 p-6">
         <Edit2Icon className=" cursor-pointer text-green-600" onClick={()=>{
             window.scrollTo(0, 0);
-            navigate(`/balaod/editable/edit-blog/${e._id}`)
+            navigate(`/editable/edit-blog/${e._id}`)
             localStorage.setItem("saveEdit",JSON.stringify(e))
         }}/>
           <Trash2Icon className=" cursor-pointer text-red-600" onClick={
@@ -237,7 +237,7 @@ const Kudlit = () => {
         
         <div className="w-full border flex flex-col gap-4 border-border p-4 bg-background cursor-pointer hover:bg-[#e4e4e4] pr-10 relative" onClick={()=>{
         window.scrollTo(0, 0);
-        navigate(`/balaod/editable/blog/${e._id}`)
+        navigate(`/editable/blog/${e._id}`)
         localStorage.setItem("selected",JSON.stringify(e))
 
       }}>

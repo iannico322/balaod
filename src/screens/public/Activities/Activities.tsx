@@ -62,7 +62,7 @@ const Activities = () => {
           <button  
           onClick={()=>{
             window.scrollTo(0, 0);
-            navigate("/balaod/kudlit")
+            navigate("/kudlit")
 
           }}
           className=" w-[400px] sm:w-[300px]  hover:opacity-60 transition-all duration-200 font-black shadow-2xl text-primary-foreground uppercase  sm:text-sm bg-transparent border border-primary-foreground text-xl p-4">

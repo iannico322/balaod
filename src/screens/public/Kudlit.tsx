@@ -117,7 +117,7 @@ const Kudlit = () => {
       
       <div  onClick={()=>{
         window.scrollTo(0, 0);
-        navigate(`/balaod/blog/${e._id}`)
+        navigate(`/blog/${e._id}`)
         localStorage.setItem("selected",JSON.stringify(e))
 
       }} className=" relative max-w-full flex w-full min-h-0  "  >

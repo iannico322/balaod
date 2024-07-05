@@ -106,7 +106,7 @@ const Main = () => {
               <button  
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate(`/balaod/blog/${HighlightAct._id}`)
+                navigate(`/blog/${HighlightAct._id}`)
                 localStorage.setItem("selected",JSON.stringify(HighlightAct))
                 
               }}

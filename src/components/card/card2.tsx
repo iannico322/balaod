@@ -17,7 +17,7 @@ function ActivitiesCard({className,e,order,resetPartners,id}:any) {
       <div
       onClick={()=>{
         window.scrollTo(0, 0);
-        navigate(`/balaod/editable/blog/${e._id}`)
+        navigate(`/editable/blog/${e._id}`)
         localStorage.setItem("selected",JSON.stringify(e))
   
       }} 
