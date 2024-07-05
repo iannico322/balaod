@@ -8,8 +8,8 @@
       var l = window.location;
       var pathname = l.pathname;
 
-      // Check if the pathname has more than one segment
-      if (pathname.split('/').filter(Boolean).length > 1) {
+      // Check if the pathname has more than one segment or ends with a '/'
+      if (pathname.split('/').filter(Boolean).length > 1 || pathname.endsWith('/')) {
         var redirectUrl = l.protocol + '//' + l.host + '/index.html?redirect=' + encodeURIComponent(pathname + l.search + l.hash);
         window.location.replace(redirectUrl);
       }
