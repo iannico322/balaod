@@ -6,17 +6,19 @@
   <script type="text/javascript">
     (function() {
       var l = window.location;
-      var pathname = l.pathname;
+      // var pathname2 = l.pathname;
+      // if (pathname2.split('/').filter(Boolean).length > 1) {
+      //   var redirectUrl = l.protocol + '//' + l.host + '/index.html?redirect=' + encodeURIComponent(pathname2 + l.search + l.hash);
+      //   window.location.replace(redirectUrl);
+      // }else{
+      //   var pathname = l.pathname.split("/").slice(0, -1).join("/");
+      //   var redirectUrl = l.protocol + "//" + l.host + pathname + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
+      //   window.location.replace(redirectUrl);
+      // }
 
-      // Check if the pathname has more than one segment
-      if (pathname.split('/').filter(Boolean).length > 1) {
-        var redirectUrl = l.protocol + '//' + l.host + '/index.html?redirect=' + encodeURIComponent(pathname + l.search + l.hash);
-        window.location.replace(redirectUrl);
-      }else{
-        var pathname = l.pathname.split("/").slice(0, -1).join("/");
-        var redirectUrl = l.protocol + "//" + l.host + pathname + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
-        window.location.replace(redirectUrl);
-      }
+      var pathname = l.pathname.split("/").slice(0, -1).join("/");
+      var redirectUrl = l.protocol + "//" + l.host + pathname + "/index.html?redirect=" + encodeURIComponent(l.pathname + l.search + l.hash);
+      window.location.replace(redirectUrl);
     })();
   </script>
 </head>
