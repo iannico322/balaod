@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>React Router</title>
+  <title>React App</title>
   <script type="text/javascript">
     (function() {
       var l = window.location;
@@ -10,7 +10,7 @@
 
       // Check if the pathname has more than one segment or ends with a '/'
       if (pathname.split('/').filter(Boolean).length > 1 || pathname.endsWith('/')) {
-        var redirectUrl = l.protocol + '//' + l.host + '/index.html?redirect=' + encodeURIComponent(pathname + l.search + l.hash);
+        var redirectUrl = l.protocol + '//' + l.host + '/index.html';
         window.location.replace(redirectUrl);
       }
     })();
