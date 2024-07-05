@@ -6,7 +6,7 @@
     <script type="text/javascript">
       (function() {
         var l = window.location;
-        var redirectUrl = l.protocol + "//" + l.host + l.pathname + '/index.html?redirect=' + encodeURIComponent(l.pathname + l.search + l.hash);
+        var redirectUrl = l.protocol + "//" + l.host + l.pathname + (l.pathname.endsWith('/') ? '' : '/') + 'index.html?redirect=' + encodeURIComponent(l.pathname + l.search + l.hash);
         window.location.replace(redirectUrl);
       })();
     </script>
